@@ -573,7 +573,7 @@ namespace Dapper
         static readonly System.Collections.Concurrent.ConcurrentDictionary<Identity, CacheInfo> _queryCache = new System.Collections.Concurrent.ConcurrentDictionary<Identity, CacheInfo>();
         private static void SetQueryCache(Identity key, CacheInfo value)
         {
-            if (Interlocked.Increment(ref collect) == COLLECT_PER_ITEMS)
+            if (Interlocked.Increment(ref collect) == COLLECT_PER_ITEMS)//设置COLLECT_PER_ITEMS次后调用一次收集
             {
                 CollectCacheGarbage();
             }
