@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" GraphDirection="BottomToTop" Layout="Sugiyama" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 Type=(Name=CachedOutputSetters GenericParameterCount=1 ParentType=DynamicParameters))" Category="CodeSchema_Class" Bounds="243.406666666667,109.5,209.026666666666,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsInternal="True" CommonLabel="CachedOutputSetters‎&lt;T‎&gt;" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="CachedOutputSetters‎&lt;T‎&gt;" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=4939 StartCharacterOffset=8 EndLineNumber=4939 EndCharacterOffset=8)" />
+    <Node Id="(@1 @2 Type=(Name=DapperRowMetaObject @3))" Category="CodeSchema_Class" Bounds="225.2,671.1875,196.013333333333,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPrivate="True" CommonLabel="DapperRowMetaObject" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="DapperRowMetaObject" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=2345 StartCharacterOffset=8 EndLineNumber=2345 EndCharacterOffset=8)" />
+    <Node Id="(@1 @2 Type=(Name=DapperTable @3))" Category="CodeSchema_Class" Bounds="619.166666666667,616.1875,134.673333333334,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPrivate="True" CommonLabel="DapperTable" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="DapperTable" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=2299 StartCharacterOffset=8 EndLineNumber=2299 EndCharacterOffset=8)" />
+    <Node Id="(@1 @2 Type=(Name=DeadValue ParentType=(Name=DapperRow @3)))" Category="CodeSchema_Class" Bounds="40,486.1875,123.419665749356,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPrivate="True" CommonLabel="DeadValue" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="DeadValue" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=2435 StartCharacterOffset=12 EndLineNumber=2435 EndCharacterOffset=12)" />
+    <Node Id="(@1 @2 Type=(Name=LiteralToken @3))" Category="CodeSchema_Struct" Bounds="619.166666666667,561.1875,129.286666666667,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsInternal="True" CommonLabel="LiteralToken" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Struct" Label="LiteralToken" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=2896 StartCharacterOffset=8 EndLineNumber=2896 EndCharacterOffset=8)" />
+    <Node Id="(@1 @2 Type=CommandFlags)" Category="CodeSchema_Enum" Bounds="804.781666666667,438.6875,146.276666666667,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="CommandFlags" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Enum" Label="CommandFlags" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=31 StartCharacterOffset=4 EndLineNumber=31 EndCharacterOffset=4)" />
+    <Node Id="(@1 @2 Type=ExplicitConstructorAttribute)" Category="CodeSchema_Class" Bounds="995.631666666667,124.5,220.656666666667,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="ExplicitConstructorAttribute" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="ExplicitConstructorAttribute" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=5666 StartCharacterOffset=4 EndLineNumber=5666 EndCharacterOffset=4)" />
+    <Node Id="(@1 @2 Type=FeatureSupport)" Category="CodeSchema_Class" Bounds="1210.62166666667,14.5,150.403333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="FeatureSupport" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="FeatureSupport" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=5083 StartCharacterOffset=4 EndLineNumber=5083 EndCharacterOffset=4)" />
+    <Node Id="(@1 @2 Type=IWrappedDataReader)" Category="CodeSchema_Interface" Bounds="995.631666666667,14.5,184.99,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IWrappedDataReader" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IWrappedDataReader" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=5651 StartCharacterOffset=4 EndLineNumber=5651 EndCharacterOffset=4)" />
+    <Node Id="(@1 @2 Type=WrappedReader)" Category="CodeSchema_Class" Bounds="1010.83333333333,69.5,154.586666666667,25" CodeSchemaProperty_IsInternal="True" CommonLabel="WrappedReader" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="WrappedReader" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=5448 StartCharacterOffset=4 EndLineNumber=5448 EndCharacterOffset=4)" />
+    <Node Id="@10" Category="CodeSchema_Interface" Bounds="451.213333333333,671.1875,202.87,25" CodeSchemaProperty_IsPublic="True" CommonLabel="ICustomQueryParameter" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="ICustomQueryParameter" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=278 StartCharacterOffset=8 EndLineNumber=278 EndCharacterOffset=8)" />
+    <Node Id="@11" Category="CodeSchema_Class" Bounds="372.096666666667,226.1875,104.89,25" CodeSchemaProperty_IsPublic="True" CommonLabel="Identity" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="Identity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=920 StartCharacterOffset=8 EndLineNumber=920 EndCharacterOffset=8)" />
+    <Node Id="@12" Category="CodeSchema_Interface" Bounds="213.961666666667,281.1875,179.16,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IDynamicParameters" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IDynamicParameters" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=243 StartCharacterOffset=8 EndLineNumber=243 EndCharacterOffset=8)" />
+    <Node Id="@13" Category="CodeSchema_Interface" Bounds="213.419665749356,446.1875,139.38,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IMemberMap" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IMemberMap" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=419 StartCharacterOffset=8 EndLineNumber=419 EndCharacterOffset=8)" />
+    <Node Id="@14" Category="CodeSchema_Interface" Bounds="20,336.1875,177.083333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IParameterCallbacks" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IParameterCallbacks" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=267 StartCharacterOffset=8 EndLineNumber=267 EndCharacterOffset=8)" />
+    <Node Id="@15" Category="CodeSchema_Interface" Bounds="227.22,336.1875,166.643333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IParameterLookup" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IParameterLookup" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=256 StartCharacterOffset=8 EndLineNumber=256 EndCharacterOffset=8)" />
+    <Node Id="@16" Category="CodeSchema_Interface" Bounds="233.79,561.1875,137.8,25" CodeSchemaProperty_IsPublic="True" CommonLabel="ITypeHandler" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="ITypeHandler" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=292 StartCharacterOffset=8 EndLineNumber=292 EndCharacterOffset=8)" />
+    <Node Id="@17" Category="CodeSchema_Interface" Bounds="223.984665749357,501.1875,118.25,25" CodeSchemaProperty_IsPublic="True" CommonLabel="ITypeMap" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="ITypeMap" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=381 StartCharacterOffset=8 EndLineNumber=381 EndCharacterOffset=8)" />
+    <Node Id="@18" Category="CodeSchema_Class" Bounds="20,616.1875,155.38,25" CodeSchemaProperty_IsPublic="True" CommonLabel="UdtTypeHandler" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="UdtTypeHandler" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=315 StartCharacterOffset=8 EndLineNumber=315 EndCharacterOffset=8)" />
+    <Node Id="@19" Category="CodeSchema_Class" Bounds="430.213333333333,616.1875,158.953333333333,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="TypeHandler‎&lt;T‎&gt;" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="TypeHandler‎&lt;T‎&gt;" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=344 StartCharacterOffset=8 EndLineNumber=344 EndCharacterOffset=8)" />
+    <Node Id="@20" Category="CodeSchema_Class" Bounds="205.775,616.1875,193.83,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="TypeHandlerCache‎&lt;T‎&gt;" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="TypeHandlerCache‎&lt;T‎&gt;" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=821 StartCharacterOffset=8 EndLineNumber=821 EndCharacterOffset=8)" />
+    <Node Id="@21" Category="CodeSchema_Class" Bounds="20,671.1875,175.2,25" CodeSchemaProperty_IsInternal="True" CommonLabel="Link‎&lt;TKey‎, TValue‎&gt;" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="Link‎&lt;TKey‎, TValue‎&gt;" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=452 StartCharacterOffset=8 EndLineNumber=452 EndCharacterOffset=8)" />
+    <Node Id="@22" Category="CodeSchema_Class" Bounds="502.846666666667,72,210.146666666667,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsInternal="True" CommonLabel="AssemblyNeutralAttribute" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="AssemblyNeutralAttribute" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=25 StartCharacterOffset=4 EndLineNumber=25 EndCharacterOffset=4)" />
+    <Node Id="@23" Category="CodeSchema_Struct" Bounds="790.208333333333,747.875,175.423333333334,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="CommandDefinition" DelayedChildNodesState="NotFetched" Group="Collapsed" Icon="CodeSchema_Struct" Label="CommandDefinition" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=54 StartCharacterOffset=4 EndLineNumber=54 EndCharacterOffset=4)" />
+    <Node Id="@24" Category="CodeSchema_Class" Bounds="69.6833333333333,804.5625,208.473333333333,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="CustomPropertyTypeMap" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="CustomPropertyTypeMap" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=5383 StartCharacterOffset=4 EndLineNumber=5383 EndCharacterOffset=4)" />
+    <Node Id="@25" Category="CodeSchema_Class" Bounds="495.606666666666,804.5625,164.626666666667,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsInternal="True" CommonLabel="DataTableHandler" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="DataTableHandler" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=4953 StartCharacterOffset=4 EndLineNumber=4953 EndCharacterOffset=4)" />
+    <Node Id="@26" Category="CodeSchema_Class" Bounds="156.896666666667,747.875,112.046666666667,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="DbString" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="DbString" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=5024 StartCharacterOffset=4 EndLineNumber=5024 EndCharacterOffset=4)" />
+    <Node Id="@27" Category="CodeSchema_Class" Bounds="308.658333333333,804.5625,156.523333333333,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="DefaultTypeMap" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="DefaultTypeMap" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=5225 StartCharacterOffset=4 EndLineNumber=5225 EndCharacterOffset=4)" />
+    <Node Id="@28" Category="CodeSchema_Class" Bounds="223.406666666667,14.5,249.026666666666,140" CodeSchemaProperty_IsPublic="True" CommonLabel="DynamicParameters" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="DynamicParameters" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=4461 StartCharacterOffset=4 EndLineNumber=4461 EndCharacterOffset=4)" />
+    <Node Id="@29" Category="CodeSchema_Class" Bounds="299.478333333333,747.875,174.883333333333,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="SimpleMemberMap" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="SimpleMemberMap" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=5111 StartCharacterOffset=4 EndLineNumber=5111 EndCharacterOffset=4)" />
+    <Node Id="@30" Category="CodeSchema_Class" Bounds="0,186.1875,773.84,530" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="SqlMapper" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="SqlMapper" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=238 StartCharacterOffset=4 EndLineNumber=238 EndCharacterOffset=4)" />
+    <Node Id="@31" Category="CodeSchema_Class" Bounds="568.363333333333,747.875,191.113333333333,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsInternal="True" CommonLabel="TableValuedParameter" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="TableValuedParameter" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=4969 StartCharacterOffset=4 EndLineNumber=4969 EndCharacterOffset=4)" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="243.406666666667,54.5,120.146666666666,25" CodeSchemaProperty_IsPrivate="True" CommonLabel="ParamInfo" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="ParamInfo" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=4478 StartCharacterOffset=8 EndLineNumber=4478 EndCharacterOffset=8)" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="455.248333333333,336.1875,118.586666666667,25" CodeSchemaProperty_IsPrivate="True" CommonLabel="CacheInfo" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="CacheInfo" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=496 StartCharacterOffset=8 EndLineNumber=496 EndCharacterOffset=8)" />
+    <Node Id="@6" Category="CodeSchema_Class" Bounds="20,446.1875,163.419665749356,85" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPrivate="True" CommonLabel="DapperRow" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="DapperRow" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=2421 StartCharacterOffset=8 EndLineNumber=2421 EndCharacterOffset=8)" />
+    <Node Id="@7" Category="CodeSchema_Struct" Bounds="527.185,281.1875,154.713333333333,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPrivate="True" CommonLabel="DeserializerState" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Struct" Label="DeserializerState" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=518 StartCharacterOffset=8 EndLineNumber=518 EndCharacterOffset=8)" />
+    <Node Id="@8" Category="CodeSchema_Class" Bounds="635.715,336.1875,115.653333333333,25" CodeSchemaProperty_IsPrivate="True" CommonLabel="DontMap" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="DontMap" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=1883 StartCharacterOffset=8 EndLineNumber=1883 EndCharacterOffset=8)" />
+    <Node Id="@9" Category="CodeSchema_Class" Bounds="451.68,391.1875,125.723333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="GridReader" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="GridReader" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///E:/Workspace/Git/xdapper/Dapper NET40/SqlMapper.cs&quot; StartLineNumber=4126 StartCharacterOffset=8 EndLineNumber=4126 EndCharacterOffset=8)" />
+  </Nodes>
+  <Links>
+    <Link Source="(@1 @2 Type=WrappedReader)" Target="(@1 @2 Type=IWrappedDataReader)" Category="Implements" Bounds="1088.12670898438,49,0,20.5" Weight="1" />
+    <Link Source="@10" Target="@22" Category="CodeSchema_AttributeUse" Bounds="-192.947396222791,350.766933126826,173.504511101253,330.12861340651" Weight="1" />
+    <Link Source="@11" Target="@11" Category="References" Bounds="476.986663818359,232.581817626953,43.5000305175781,12.3414306640625" Weight="1" />
+    <Link Source="@12" Target="@11" Category="References" Bounds="331.041656494141,254.911727905273,57.8067016601563,26.2757720947266" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@14" Target="@12" Category="Implements" Bounds="152.859848022461,308.766357421875,97.2203674316406,27.421142578125" Weight="1" />
+    <Link Source="@15" Target="@12" Category="Implements" Bounds="306.332000732422,315.611480712891,2.61874389648438,20.5760192871094" Weight="1" />
+    <Link Source="@16" Target="@22" Category="CodeSchema_AttributeUse" Bounds="310.489411936486,104.635575735653,284.866936084261,456.551946486575" Weight="1" />
+    <Link Source="@17" Target="@13" Category="CodeSchema_ReturnTypeLink" Bounds="283.109680175781,480.1875,0,21" IsSourceVirtualized="True" Weight="2" />
+    <Link Source="@18" Target="@16" Category="Implements" Bounds="144.280914306641,588.649230957031,102.642669677734,27.5382690429688" Weight="1" />
+    <Link Source="@19" Target="@16" Category="Implements" Bounds="358.916900634766,588.627014160156,103.727630615234,27.5604858398438" Weight="1" />
+    <Link Source="@20" Target="@16" Category="References" Bounds="302.690002441406,595.1875,0,21" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@22" Target="@22" Category="CodeSchema_AttributeUse" Bounds="712.993347167969,78.883903503418,43.5,11.521598815918" Weight="1" />
+    <Link Source="@23" Target="(@1 @2 Type=CommandFlags)" Category="References" Bounds="877.919982910156,472.6875,0,275.1875" IsSourceVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@23" Target="@14" Category="CodeSchema_Calls" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@23" Target="@21" Category="References" Bounds="36.8494006902673,-91.2584335841076,214.646858088504,766.948038812489" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@24" Target="@13" Category="CodeSchema_ReturnTypeLink" Bounds="-138.234682781981,-143.55187195006,30.8991517689703,248.407773205627" IsSourceVirtualized="True" Weight="2" />
+    <Link Source="@24" Target="@17" Category="Implements" Bounds="-137.23933072525,-143.55187195006,29.3172123883986,171.129633184453" Weight="1" />
+    <Link Source="@24" Target="@29" Category="CodeSchema_Calls" Bounds="220.888031005859,775.189697265625,110.36669921875,29.372802734375" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@25" Target="@16" Category="Implements" Bounds="323.56826494081,592.14934421114,240.215626937419,212.41315578886" Weight="1" />
+    <Link Source="@25" Target="@31" Category="CodeSchema_Calls" Bounds="596.883605957031,777.828186035156,40.5584106445313,26.7343139648438" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@26" Target="@10" Category="Implements" Bounds="-195.529458030276,-96.7480064680544,77.2712980458706,413.667962959135" Weight="1" />
+    <Link Source="@27" Target="@13" Category="CodeSchema_ReturnTypeLink" IsSourceVirtualized="True" Weight="2" />
+    <Link Source="@27" Target="@17" Category="Implements" Bounds="290.300773037705,534.702790399027,92.3419158022309,269.859709600973" Weight="1" />
+    <Link Source="@27" Target="@29" Category="CodeSchema_Calls" Bounds="386.920013427734,781.875,0,22.6875" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3" />
+    <Link Source="@28" Target="(@1 @2 Type=(Name=CachedOutputSetters GenericParameterCount=1 ParentType=DynamicParameters))" Category="Contains" FetchingParent="@28" />
+    <Link Source="@28" Target="@12" Category="Implements" Bounds="-6.89270234668228,-88.5517719500603,449.540216029789,542.081616243676" Weight="1" />
+    <Link Source="@28" Target="@14" Category="Implements" Bounds="-106.764208483192,-88.5517719500603,511.623457041786,373.688816828746" Weight="1" />
+    <Link Source="@28" Target="@15" Category="Implements" Bounds="228.201596888738,-88.5517719500603,231.64654490955,396.952496151259" Weight="1" />
+    <Link Source="@28" Target="@4" Category="Contains" FetchingParent="@28" />
+    <Link Source="@29" Target="@13" Category="Implements" Bounds="290.339273266226,479.697688645053,92.2794917021843,268.177311354947" Weight="1" />
+    <Link Source="@30" Target="(@1 @2 Type=(Name=DapperRowMetaObject @3))" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="(@1 @2 Type=(Name=DapperTable @3))" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="(@1 @2 Type=(Name=LiteralToken @3))" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@10" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@11" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@12" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@13" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@14" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@15" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@16" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@17" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@18" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@19" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@20" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@21" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@5" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@6" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@7" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@8" Category="Contains" FetchingParent="@30" />
+    <Link Source="@30" Target="@9" Category="Contains" FetchingParent="@30" />
+    <Link Source="@31" Target="@10" Category="Implements" Bounds="-405.711835371446,-63.7808267327393,489.737434741719,530.889099588006" Weight="1" />
+    <Link Source="@4" Target="@28" Category="References" Bounds="303.480010986328,1,12.322265625,53.5" IsSourceVirtualized="True" Weight="4" />
+    <Link Source="@5" Target="@7" Category="References" Bounds="534.996215820313,310.880554199219,41.411376953125,25.3069458007813" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@6" Target="(@1 @2 Type=(Name=DeadValue ParentType=(Name=DapperRow @3)))" Category="Contains" FetchingParent="@6" />
+    <Link Source="@9" Target="@11" Category="References" Bounds="424.541656494141,260.1875,69.5454711914063,131" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="12">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@9" Target="@14" Category="References" Bounds="203.734252929688,361.583038330078,248.047180175781,33.6024475097656" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@9" Target="@28" Category="References" Bounds="-1.71562520716435,-34.3567218487338,452.607006790912,648.218791563611" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@9" Target="@5" Category="CodeSchema_Calls" Bounds="514.541687011719,370.1875,0,21" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4" />
+    <Link Source="@9" Target="@7" Category="CodeSchema_Calls" Bounds="534.996215820313,315.1875,69.5454711914063,76" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="9">
+      <Category Ref="CodeSchema_FieldRead" />
+    </Link>
+    <Link Source="@9" Target="@8" Category="References" Bounds="555.223510742188,363.830902099609,89.0332641601563,27.3565979003906" IsSourceVirtualized="True" Weight="15" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_AttributeUse" Label="使用特性" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="使用者" OutgoingActionLabel="使用特性" />
+    <Category Id="CodeSchema_Calls" Label="调用" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="调用者" OutgoingActionLabel="调用" />
+    <Category Id="CodeSchema_Class" Label="类" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="类" />
+    <Category Id="CodeSchema_Enum" Label="枚举" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Enum" NavigationActionLabel="枚举" />
+    <Category Id="CodeSchema_FieldRead" Label="字段读取" BasedOn="CodeSchema_FieldReference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="读取方" OutgoingActionLabel="读取字段" />
+    <Category Id="CodeSchema_FieldReference" Label="字段引用" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="引用方" OutgoingActionLabel="引用字段" />
+    <Category Id="CodeSchema_Interface" Label="接口" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Interface" NavigationActionLabel="接口" />
+    <Category Id="CodeSchema_ReturnTypeLink" Label="返回" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="返回类型" OutgoingActionLabel="返回类型" />
+    <Category Id="CodeSchema_Struct" Label="结构" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Struct" NavigationActionLabel="结构" />
+    <Category Id="CodeSchema_Type" Label="类型" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="类型" />
+    <Category Id="Contains" Label="包含" Description="链接的源是否包含目标对象" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="包含者" IsContainment="True" OutgoingActionLabel="包含" />
+    <Category Id="Implements" Label="实现" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="实现者" OutgoingActionLabel="实现" />
+    <Category Id="References" Label="引用" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="引用者" OutgoingActionLabel="引用" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="是抽象的" Description="一个标志，用于指示该成员是“抽象”成员且不提供完整实现" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsFinal" Label="是最终的" Description="一个标志，用于指示该成员是“最终”成员且不能从其派生" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="是内部的" Description="一个标志，用于指示该方法是“内部”方法" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="是私有的" Description="一个标志，用于指示该范围是“私有”范围" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="是公共的" Description="一个标志，用于指示该范围是“公共”范围" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DataVirtualized" Label="已虚拟化数据" Description="如果为 true，则图中可以包含表示虚拟化节点/链接(即，不在图中实际创建)的数据的节点和链接。" DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="DelayedChildNodesState" Label="延迟的子节点状态" Description="如果未指定延迟的子节点状态，则为 Unspecified。如果尚未将组包含的子节点提取到关系图中，则为 NotFetched。如果已提取组内的所有延迟的子节点，则为 Fetched。" DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="DelayedCrossGroupLinksState" Label="延迟的跨组链接状态" Description="如果未指定延迟的跨组链接状态，则为 Unspecified。如果尚未将此节点上延迟的跨组链接提取到关系图中，则为 NotFetched。如果已提取所有延迟的跨组链接，则为 Fetched。" DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="FetchingParent" DataType="Microsoft.VisualStudio.GraphModel.GraphNodeId" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="组" Description="将节点显示为组" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="图标" Description="图标" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsSourceVirtualized" Label="已虚拟化链接源" Description="如果为 true，则链接源端包含虚拟化节点/链接(即，不在图中实际创建)的数据。" DataType="System.Boolean" />
+    <Property Id="IsTargetVirtualized" Label="已虚拟化链接目标" Description="如果为 true，则链接目标端包含虚拟化节点/链接(即，不在图中实际创建)的数据。" DataType="System.Boolean" />
+    <Property Id="Label" Label="标签" Description="可批注对象的可显示标签" DataType="System.String" />
+    <Property Id="Language" Label="语言" Description="语言" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="起始行号" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+    <Property Id="Weight" Label="粗细" Description="粗细" DataType="System.Double" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="程序集" ValueType="Uri" />
+    <Name Id="GenericParameterCount" Label="泛型形参计数" ValueType="System.String" />
+    <Name Id="Name" Label="名称" ValueType="System.String" />
+    <Name Id="Namespace" Label="命名空间" ValueType="System.String" />
+    <Name Id="ParentType" Label="父类型" ValueType="System.Object" />
+    <Name Id="Type" Label="类型" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(daf737e1-05b5-4189-a5aa-dac6233b64d7.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=Dapper" />
+    <Alias n="3" Id="ParentType=SqlMapper" />
+    <Alias n="4" Id="(@1 @2 Type=(Name=ParamInfo ParentType=DynamicParameters))" />
+    <Alias n="5" Id="(@1 @2 Type=(Name=CacheInfo @3))" />
+    <Alias n="6" Id="(@1 @2 Type=(Name=DapperRow @3))" />
+    <Alias n="7" Id="(@1 @2 Type=(Name=DeserializerState @3))" />
+    <Alias n="8" Id="(@1 @2 Type=(Name=DontMap @3))" />
+    <Alias n="9" Id="(@1 @2 Type=(Name=GridReader @3))" />
+    <Alias n="10" Id="(@1 @2 Type=(Name=ICustomQueryParameter @3))" />
+    <Alias n="11" Id="(@1 @2 Type=(Name=Identity @3))" />
+    <Alias n="12" Id="(@1 @2 Type=(Name=IDynamicParameters @3))" />
+    <Alias n="13" Id="(@1 @2 Type=(Name=IMemberMap @3))" />
+    <Alias n="14" Id="(@1 @2 Type=(Name=IParameterCallbacks @3))" />
+    <Alias n="15" Id="(@1 @2 Type=(Name=IParameterLookup @3))" />
+    <Alias n="16" Id="(@1 @2 Type=(Name=ITypeHandler @3))" />
+    <Alias n="17" Id="(@1 @2 Type=(Name=ITypeMap @3))" />
+    <Alias n="18" Id="(@1 @2 Type=(Name=UdtTypeHandler @3))" />
+    <Alias n="19" Id="(@1 @2 Type=(Name=TypeHandler GenericParameterCount=1 @3))" />
+    <Alias n="20" Id="(@1 @2 Type=(Name=TypeHandlerCache GenericParameterCount=1 @3))" />
+    <Alias n="21" Id="(@1 @2 Type=(Name=Link GenericParameterCount=2 @3))" />
+    <Alias n="22" Id="(@1 @2 Type=AssemblyNeutralAttribute)" />
+    <Alias n="23" Id="(@1 @2 Type=CommandDefinition)" />
+    <Alias n="24" Id="(@1 @2 Type=CustomPropertyTypeMap)" />
+    <Alias n="25" Id="(@1 @2 Type=DataTableHandler)" />
+    <Alias n="26" Id="(@1 @2 Type=DbString)" />
+    <Alias n="27" Id="(@1 @2 Type=DefaultTypeMap)" />
+    <Alias n="28" Id="(@1 @2 Type=DynamicParameters)" />
+    <Alias n="29" Id="(@1 @2 Type=SimpleMemberMap)" />
+    <Alias n="30" Id="(@1 @2 Type=SqlMapper)" />
+    <Alias n="31" Id="(@1 @2 Type=TableValuedParameter)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="结果" ValueLabel="True">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="程序集" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="命名空间" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="接口" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="结构" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="枚举" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="委托" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="类" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="属性" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="方法" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="事件" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="字段" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Out Parameter" ValueLabel="True">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Parameter" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Local Variable" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="外部" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FF424242" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Read" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Target.HasCategory('CodeSchema_Field') And HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="daf737e1-05b5-4189-a5aa-dac6233b64d7.OutputPathUri" Value="file:///E:/Workspace/Git/xdapper/Dapper NET40/bin/Debug/Dapper.dll" />
+  </Paths>
+</DirectedGraph>

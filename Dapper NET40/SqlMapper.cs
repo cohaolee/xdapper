@@ -680,6 +680,7 @@ namespace Dapper
 #endif
 
 
+        #region 数据库字段类型相关
         static Dictionary<Type, DbType> typeMap;
 
         static SqlMapper()
@@ -766,10 +767,10 @@ namespace Dapper
             if (type == null) throw new ArgumentNullException("type");
 
             Type secondary = null;
-            if(type.IsValueType)
+            if (type.IsValueType)
             {
                 var underlying = Nullable.GetUnderlyingType(type);
-                if(underlying == null)
+                if (underlying == null)
                 {
                     secondary = typeof(Nullable<>).MakeGenericType(type); // the Nullable<T>
                     // type is already the T
@@ -789,7 +790,7 @@ namespace Dapper
 
 #pragma warning disable 618
             typeof(TypeHandlerCache<>).MakeGenericType(type).GetMethod("SetHandler", BindingFlags.Static | BindingFlags.NonPublic).Invoke(null, new object[] { handler });
-            if(secondary != null)
+            if (secondary != null)
             {
                 typeof(TypeHandlerCache<>).MakeGenericType(secondary).GetMethod("SetHandler", BindingFlags.Static | BindingFlags.NonPublic).Invoke(null, new object[] { handler });
             }
@@ -802,7 +803,7 @@ namespace Dapper
             else
             {
                 newCopy[type] = handler;
-                if(secondary != null) newCopy[secondary] = handler;
+                if (secondary != null) newCopy[secondary] = handler;
             }
             typeHandlers = newCopy;
         }
@@ -829,7 +830,7 @@ namespace Dapper
             public static T Parse(object value)
             {
                 return (T)handler.Parse(typeof(T), value);
-                
+
             }
 
             /// <summary>
@@ -906,11 +907,13 @@ namespace Dapper
                     AddTypeHandler(type, handler = new UdtTypeHandler("hierarchyid"));
                     return DbType.Object;
             }
-            if(demand)
+            if (demand)
                 throw new NotSupportedException(string.Format("The member {0} of type {1} cannot be used as a parameter value", name, type.FullName));
             return DbType.Object;
 
         }
+        
+        #endregion
 
         /// <summary>
         /// Identity of a cached query in Dapper, used for extensibility
@@ -1169,6 +1172,7 @@ namespace Dapper
 #endif
 
 
+        #region Execute
         /// <summary>
         /// Execute parameterized SQL  
         /// </summary>
@@ -1193,7 +1197,68 @@ this IDbConnection cnn, string sql, object param = null, IDbTransaction transact
             return ExecuteImpl(cnn, ref command);
         }
 
+        private static int ExecuteImpl(this IDbConnection cnn, ref CommandDefinition command)
+        {
+            object param = command.Parameters;
+            IEnumerable multiExec = GetMultiExec(param);
+            Identity identity;
+            CacheInfo info = null;
+            if (multiExec != null)
+            {
+#if ASYNC
+                if((command.Flags & CommandFlags.Pipelined) != 0)
+                {
+                    // this includes all the code for concurrent/overlapped query
+                    return ExecuteMultiImplAsync(cnn, command, multiExec).Result;
+                }
+#endif
+                bool isFirst = true;
+                int total = 0;
+                bool wasClosed = cnn.State == ConnectionState.Closed;
+                try
+                {
+                    if (wasClosed) cnn.Open();
+                    using (var cmd = command.SetupCommand(cnn, null))
+                    {
+                        string masterSql = null;
+                        foreach (var obj in multiExec)
+                        {
+                            if (isFirst)
+                            {
+                                masterSql = cmd.CommandText;
+                                isFirst = false;
+                                identity = new Identity(command.CommandText, cmd.CommandType, cnn, null, obj.GetType(), null);
+                                info = GetCacheInfo(identity, obj, command.AddToCache);
+                            }
+                            else
+                            {
+                                cmd.CommandText = masterSql; // because we do magic replaces on "in" etc
+                                cmd.Parameters.Clear(); // current code is Add-tastic
+                            }
+                            info.ParamReader(cmd, obj);
+                            total += cmd.ExecuteNonQuery();
+                        }
+                    }
+                    command.OnCompleted();
+                }
+                finally
+                {
+                    if (wasClosed) cnn.Close();
+                }
+                return total;
+            }
 
+            // nice and simple
+            if (param != null)
+            {
+                identity = new Identity(command.CommandText, command.CommandType, cnn, null, param.GetType(), null);
+                info = GetCacheInfo(identity, param, command.AddToCache);
+            }
+            return ExecuteCommand(cnn, ref command, param == null ? null : info.ParamReader);
+        } 
+        #endregion
+
+        #region ExecuteScalar
         /// <summary>
         /// Execute parameterized SQL that selects a single value
         /// </summary>
@@ -1244,72 +1309,37 @@ this IDbConnection cnn, string sql, object param = null, IDbTransaction transact
             return ExecuteScalarImpl<T>(cnn, ref command);
         }
 
-        private static IEnumerable GetMultiExec(object param)
-        {
-            return (param is IEnumerable
-                && !(param is string || param is IEnumerable<KeyValuePair<string, object>>
-                    )) ? (IEnumerable)param : null;
-        }
 
-        private static int ExecuteImpl(this IDbConnection cnn, ref CommandDefinition command)
+        private static T ExecuteScalarImpl<T>(IDbConnection cnn, ref CommandDefinition command)
         {
+            Action<IDbCommand, object> paramReader = null;
             object param = command.Parameters;
-            IEnumerable multiExec = GetMultiExec(param);
-            Identity identity;
-            CacheInfo info = null;
-            if (multiExec != null)
-            {
-#if ASYNC
-                if((command.Flags & CommandFlags.Pipelined) != 0)
-                {
-                    // this includes all the code for concurrent/overlapped query
-                    return ExecuteMultiImplAsync(cnn, command, multiExec).Result;
-                }
-#endif
-                bool isFirst = true;
-                int total = 0;
-                bool wasClosed = cnn.State == ConnectionState.Closed;
-                try
-                {
-                    if (wasClosed) cnn.Open();
-                    using (var cmd = command.SetupCommand(cnn, null))
-                    {
-                        string masterSql = null;
-                        foreach (var obj in multiExec)
-                        {
-                            if (isFirst)
-                            {
-                                masterSql = cmd.CommandText;
-                                isFirst = false;
-                                identity = new Identity(command.CommandText, cmd.CommandType, cnn, null, obj.GetType(), null);
-                                info = GetCacheInfo(identity, obj, command.AddToCache);
-                            }
-                            else
-                            {
-                                cmd.CommandText = masterSql; // because we do magic replaces on "in" etc
-                                cmd.Parameters.Clear(); // current code is Add-tastic
-                            }
-                            info.ParamReader(cmd, obj);
-                            total += cmd.ExecuteNonQuery();
-                        }
-                    }
-                    command.OnCompleted();
-                } finally
-                {
-                    if (wasClosed) cnn.Close();
-                }
-                return total;
-            }
-
-            // nice and simple
             if (param != null)
             {
-                identity = new Identity(command.CommandText, command.CommandType, cnn, null, param.GetType(), null);
-                info = GetCacheInfo(identity, param, command.AddToCache);
+                var identity = new Identity(command.CommandText, command.CommandType, cnn, null, param.GetType(), null);
+                paramReader = GetCacheInfo(identity, command.Parameters, command.AddToCache).ParamReader;
             }
-            return ExecuteCommand(cnn, ref command, param == null ? null : info.ParamReader);
-        }
 
+            IDbCommand cmd = null;
+            bool wasClosed = cnn.State == ConnectionState.Closed;
+            object result;
+            try
+            {
+                cmd = command.SetupCommand(cnn, paramReader);
+                if (wasClosed) cnn.Open();
+                result = cmd.ExecuteScalar();
+                command.OnCompleted();
+            }
+            finally
+            {
+                if (wasClosed) cnn.Close();
+                if (cmd != null) cmd.Dispose();
+            }
+            return Parse<T>(result);
+        } 
+        #endregion
+
+        #region ExecuteReader
         /// <summary>
         /// Execute parameterized SQL and return an <see cref="IDataReader"/>
         /// </summary>
@@ -1372,6 +1402,65 @@ this IDbConnection cnn, string sql, object param = null, IDbTransaction transact
             return new WrappedReader(dbcmd, reader);
         }
 
+        private static IDataReader ExecuteReaderImpl(IDbConnection cnn, ref CommandDefinition command, CommandBehavior commandBehavior, out IDbCommand cmd)
+        {
+            Action<IDbCommand, object> paramReader = GetParameterReader(cnn, ref command);
+            cmd = null;
+            bool wasClosed = cnn.State == ConnectionState.Closed, disposeCommand = true;
+            try
+            {
+                cmd = command.SetupCommand(cnn, paramReader);
+                if (wasClosed) cnn.Open();
+                if (wasClosed) commandBehavior |= CommandBehavior.CloseConnection;
+                var reader = cmd.ExecuteReader(commandBehavior);
+                wasClosed = false; // don't dispose before giving it to them!
+                disposeCommand = false;
+                // note: command.FireOutputCallbacks(); would be useless here; parameters come at the **end** of the TDS stream
+                return reader;
+            }
+            finally
+            {
+                if (wasClosed) cnn.Close();
+                if (cmd != null && disposeCommand) cmd.Dispose();
+            }
+        }
+
+        private static Action<IDbCommand, object> GetParameterReader(IDbConnection cnn, ref CommandDefinition command)
+        {
+            object param = command.Parameters;
+            IEnumerable multiExec = GetMultiExec(param);
+            Identity identity;
+            CacheInfo info = null;
+            if (multiExec != null)
+            {
+                throw new NotSupportedException("MultiExec is not supported by ExecuteReader");
+            }
+
+            // nice and simple
+            if (param != null)
+            {
+                identity = new Identity(command.CommandText, command.CommandType, cnn, null, param.GetType(), null);
+                info = GetCacheInfo(identity, param, command.AddToCache);
+            }
+            var paramReader = info == null ? null : info.ParamReader;
+            return paramReader;
+        }
+        #endregion
+
+        //Execute 和 ExcuteReader公用
+        /// <summary>
+        /// 获取参数的可枚举对象，如果参数不是枚举器（而且不是string或IEnumerable《KeyValuePair《string, object》》 ），返回null
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        private static IEnumerable GetMultiExec(object param)
+        {
+            return (param is IEnumerable
+                && !(param is string || param is IEnumerable<KeyValuePair<string, object>>
+                    )) ? (IEnumerable)param : null;
+        }
+
+        #region Query<T>
 #if !CSHARP30
         /// <summary>
         /// Return a list of dynamic objects, reader is closed after the call
@@ -1455,7 +1544,7 @@ this IDbConnection cnn, Type type, string sql, object param, IDbTransaction tran
 #else
 this IDbConnection cnn, Type type, string sql, object param = null, IDbTransaction transaction = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null
 #endif
-        )
+)
         {
             if (type == null) throw new ArgumentNullException("type");
             var command = new CommandDefinition(sql, (object)param, transaction, commandTimeout, commandType, buffered ? CommandFlags.Buffered : CommandFlags.None);
@@ -1476,7 +1565,74 @@ this IDbConnection cnn, Type type, string sql, object param = null, IDbTransacti
         }
 
 
+        private static IEnumerable<T> QueryImpl<T>(this IDbConnection cnn, CommandDefinition command, Type effectiveType)
+        {
+            object param = command.Parameters;
+            var identity = new Identity(command.CommandText, command.CommandType, cnn, effectiveType, param == null ? null : param.GetType(), null);
+            var info = GetCacheInfo(identity, param, command.AddToCache);
 
+            IDbCommand cmd = null;
+            IDataReader reader = null;
+
+            bool wasClosed = cnn.State == ConnectionState.Closed;
+            try
+            {
+                cmd = command.SetupCommand(cnn, info.ParamReader);
+
+                if (wasClosed) cnn.Open();
+                reader = cmd.ExecuteReader(wasClosed ? CommandBehavior.CloseConnection | CommandBehavior.SequentialAccess : CommandBehavior.SequentialAccess);
+                wasClosed = false; // *if* the connection was closed and we got this far, then we now have a reader
+                // with the CloseConnection flag, so the reader will deal with the connection; we
+                // still need something in the "finally" to ensure that broken SQL still results
+                // in the connection closing itself
+                var tuple = info.Deserializer;
+                int hash = GetColumnHash(reader);
+                if (tuple.Func == null || tuple.Hash != hash)
+                {
+                    if (reader.FieldCount == 0) //https://code.google.com/p/dapper-dot-net/issues/detail?id=57
+                        yield break;
+                    tuple = info.Deserializer = new DeserializerState(hash, GetDeserializer(effectiveType, reader, 0, -1, false));
+                    if (command.AddToCache) SetQueryCache(identity, info);
+                }
+
+                var func = tuple.Func;
+                var convertToType = Nullable.GetUnderlyingType(effectiveType) ?? effectiveType;
+                while (reader.Read())
+                {
+                    object val = func(reader);
+                    if (val == null || val is T)
+                    {
+                        yield return (T)val;
+                    }
+                    else
+                    {
+                        yield return (T)Convert.ChangeType(val, convertToType, CultureInfo.InvariantCulture);
+                    }
+                }
+                while (reader.NextResult()) { }
+                // happy path; close the reader cleanly - no
+                // need for "Cancel" etc
+                reader.Dispose();
+                reader = null;
+
+                command.OnCompleted();
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    if (!reader.IsClosed) try { cmd.Cancel(); }
+                        catch { /* don't spoil the existing exception */ }
+                    reader.Dispose();
+                }
+                if (wasClosed) cnn.Close();
+                if (cmd != null) cmd.Dispose();
+            }
+        } 
+        #endregion
+
+
+        #region QueryMultiple
         /// <summary>
         /// Execute a command that returns multiple result sets, and access each in turn
         /// </summary>
@@ -1484,7 +1640,7 @@ this IDbConnection cnn, Type type, string sql, object param = null, IDbTransacti
 #if CSHARP30
 this IDbConnection cnn, string sql, object param, IDbTransaction transaction, int? commandTimeout, CommandType? commandType
 #else
-            this IDbConnection cnn, string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null
+this IDbConnection cnn, string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null
 #endif
 )
         {
@@ -1533,70 +1689,11 @@ this IDbConnection cnn, string sql, object param, IDbTransaction transaction, in
                 if (wasClosed) cnn.Close();
                 throw;
             }
-        }
+        } 
+        #endregion
 
-        private static IEnumerable<T> QueryImpl<T>(this IDbConnection cnn, CommandDefinition command, Type effectiveType)
-        {
-            object param = command.Parameters;
-            var identity = new Identity(command.CommandText, command.CommandType, cnn, effectiveType, param == null ? null : param.GetType(), null);
-            var info = GetCacheInfo(identity, param, command.AddToCache);
 
-            IDbCommand cmd = null;
-            IDataReader reader = null;
-
-            bool wasClosed = cnn.State == ConnectionState.Closed;
-            try
-            {
-                cmd = command.SetupCommand(cnn, info.ParamReader);
-
-                if (wasClosed) cnn.Open();
-                reader = cmd.ExecuteReader(wasClosed ? CommandBehavior.CloseConnection | CommandBehavior.SequentialAccess : CommandBehavior.SequentialAccess);
-                wasClosed = false; // *if* the connection was closed and we got this far, then we now have a reader
-                // with the CloseConnection flag, so the reader will deal with the connection; we
-                // still need something in the "finally" to ensure that broken SQL still results
-                // in the connection closing itself
-                var tuple = info.Deserializer;
-                int hash = GetColumnHash(reader);
-                if (tuple.Func == null || tuple.Hash != hash)
-                {
-                    if (reader.FieldCount == 0) //https://code.google.com/p/dapper-dot-net/issues/detail?id=57
-                        yield break;
-                    tuple = info.Deserializer = new DeserializerState(hash, GetDeserializer(effectiveType, reader, 0, -1, false));
-                    if(command.AddToCache) SetQueryCache(identity, info);
-                }
-
-                var func = tuple.Func;
-                var convertToType = Nullable.GetUnderlyingType(effectiveType) ?? effectiveType;
-                while (reader.Read())
-                {
-                    object val = func(reader);
-					if (val == null || val is T) {
-                        yield return (T)val;
-                    } else {
-                        yield return (T)Convert.ChangeType(val, convertToType, CultureInfo.InvariantCulture);
-                    }
-                }
-                while (reader.NextResult()) { }
-                // happy path; close the reader cleanly - no
-                // need for "Cancel" etc
-                reader.Dispose();
-                reader = null;
-
-                command.OnCompleted();
-            }
-            finally
-            {
-                if (reader != null)
-                {
-                    if (!reader.IsClosed) try { cmd.Cancel(); }
-                        catch { /* don't spoil the existing exception */ }
-                    reader.Dispose();
-                }
-                if (wasClosed) cnn.Close();
-                if (cmd != null) cmd.Dispose();
-            }
-        }
-
+        #region Query MultiMapImpl
         /// <summary>
         /// Maps a query to objects
         /// </summary>
@@ -1821,7 +1918,7 @@ this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TFourth, TRetu
                     var deserializers = GenerateDeserializers(new Type[] { typeof(TFirst), typeof(TSecond), typeof(TThird), typeof(TFourth), typeof(TFifth), typeof(TSixth), typeof(TSeventh) }, splitOn, reader);
                     deserializer = cinfo.Deserializer = new DeserializerState(hash, deserializers[0]);
                     otherDeserializers = cinfo.OtherDeserializers = deserializers.Skip(1).ToArray();
-                    if(command.AddToCache) SetQueryCache(identity, cinfo);
+                    if (command.AddToCache) SetQueryCache(identity, cinfo);
                 }
 
                 Func<IDataReader, TReturn> mapIt = GenerateMapper<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn>(deserializer.Func, otherDeserializers, map);
@@ -1832,11 +1929,11 @@ this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TFourth, TRetu
                     {
                         yield return mapIt(reader);
                     }
-                    if(finalize)
+                    if (finalize)
                     {
                         while (reader.NextResult()) { }
                         command.OnCompleted();
-                    }                    
+                    }
                 }
             }
             finally
@@ -1973,7 +2070,7 @@ this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TFourth, TRetu
         {
             var deserializers = new List<Func<IDataReader, object>>();
             var splits = splitOn.Split(',').Select(s => s.Trim()).ToArray();
-                bool isMultiSplit = splits.Length > 1;
+            bool isMultiSplit = splits.Length > 1;
             if (types.First() == typeof(Object))
             {
                 // we go left to right for dynamic multi-mapping so that the madness of TestMultiMappingVariations
@@ -2009,7 +2106,7 @@ this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TFourth, TRetu
                 for (var typeIdx = types.Length - 1; typeIdx >= 0; --typeIdx)
                 {
                     var type = types[typeIdx];
-                    if (type == typeof (DontMap))
+                    if (type == typeof(DontMap))
                     {
                         continue;
                     }
@@ -2073,7 +2170,8 @@ this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TFourth, TRetu
             }
 
             throw MultiMapException(reader);
-        }
+        } 
+        #endregion
 
         private static CacheInfo GetCacheInfo(Identity identity, object exampleParameters, bool addToCache)
         {
@@ -3318,77 +3416,9 @@ this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TFourth, TRetu
             }
         }
 
-        private static T ExecuteScalarImpl<T>(IDbConnection cnn, ref CommandDefinition command)
-        {
-            Action<IDbCommand, object> paramReader = null;
-            object param = command.Parameters;
-            if (param != null)
-            {
-                var identity = new Identity(command.CommandText, command.CommandType, cnn, null, param.GetType(), null);
-                paramReader = GetCacheInfo(identity, command.Parameters, command.AddToCache).ParamReader;
-            }
+       
 
-            IDbCommand cmd = null;
-            bool wasClosed = cnn.State == ConnectionState.Closed;
-            object result;
-            try
-            {
-                cmd = command.SetupCommand(cnn, paramReader);
-                if (wasClosed) cnn.Open();
-                result =cmd.ExecuteScalar();
-                command.OnCompleted();
-            }
-            finally
-            {
-                if (wasClosed) cnn.Close();
-                if (cmd != null) cmd.Dispose();
-            }
-            return Parse<T>(result);
-        }
-
-        private static IDataReader ExecuteReaderImpl(IDbConnection cnn, ref CommandDefinition command, CommandBehavior commandBehavior, out IDbCommand cmd)
-        {
-            Action<IDbCommand, object> paramReader = GetParameterReader(cnn, ref command);
-            cmd = null;
-            bool wasClosed = cnn.State == ConnectionState.Closed, disposeCommand = true;
-            try
-            {
-                cmd = command.SetupCommand(cnn, paramReader);
-                if (wasClosed) cnn.Open();
-                if (wasClosed) commandBehavior |= CommandBehavior.CloseConnection;
-                var reader = cmd.ExecuteReader(commandBehavior);
-                wasClosed = false; // don't dispose before giving it to them!
-                disposeCommand = false;
-                // note: command.FireOutputCallbacks(); would be useless here; parameters come at the **end** of the TDS stream
-                return reader;
-            }
-            finally
-            {
-                if (wasClosed) cnn.Close();
-                if (cmd != null && disposeCommand) cmd.Dispose();
-            }
-        }
-
-        private static Action<IDbCommand, object> GetParameterReader(IDbConnection cnn, ref CommandDefinition command)
-        {
-            object param = command.Parameters;
-            IEnumerable multiExec = GetMultiExec(param);
-            Identity identity;
-            CacheInfo info = null;
-            if (multiExec != null)
-            {
-                throw new NotSupportedException("MultiExec is not supported by ExecuteReader");
-            }
-
-            // nice and simple
-            if (param != null)
-            {
-                identity = new Identity(command.CommandText, command.CommandType, cnn, null, param.GetType(), null);
-                info = GetCacheInfo(identity, param, command.AddToCache);
-            }
-            var paramReader = info == null ? null : info.ParamReader;
-            return paramReader;
-        }
+      
 
         private static Func<IDataReader, object> GetStructDeserializer(Type type, Type effectiveType, int index)
         {
@@ -5309,6 +5339,7 @@ string name, object value = null, DbType? dbType = null, ParameterDirection? dir
 
         /// <summary>
         /// Gets member mapping for column
+        /// 通过映射列明获取Member
         /// </summary>
         /// <param name="columnName">DataReader column name</param>
         /// <returns>Mapping implementation</returns>
