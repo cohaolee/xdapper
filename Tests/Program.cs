@@ -30,7 +30,7 @@ namespace SqlMapper
     class Program
     {
 
-        public const string ConnectionString = "Data Source=.;Initial Catalog=tempdb;Integrated Security=True",
+        public const string ConnectionString = "Data Source=.; Initial Catalog=tempdb; User ID=sa; Password=admin888;",
             OleDbConnectionString = "Provider=SQLOLEDB;Data Source=.;Initial Catalog=tempdb;Integrated Security=SSPI";
 
         public static SqlConnection GetOpenConnection()
@@ -136,6 +136,12 @@ end
                 {
                     fail++;
                     Console.WriteLine(" - " + ex.Message);
+                }
+                Console.WriteLine("Continue? Y/N");
+                string cmd = Console.ReadLine().Trim();
+                if (cmd.ToLower() == "n")
+                {
+                    break;
                 }
             }
             Console.WriteLine();
