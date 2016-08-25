@@ -2611,7 +2611,7 @@ end");
 
         SqlConnection GetClosedConnection()
         {
-            var conn = new SqlConnection(connection.ConnectionString);
+            var conn = new SqlConnection(Program.ConnectionString);//connection.ConnectionString);
             if (conn.State != ConnectionState.Closed) throw new InvalidOperationException("should be closed!");
             return conn;
         }
@@ -2777,6 +2777,9 @@ end");
             }
         }
 
+        /// <summary>
+        /// test here
+        /// </summary>
         public void TestIssue131()
         {
             var results = connection.Query<dynamic, int, dynamic>(
