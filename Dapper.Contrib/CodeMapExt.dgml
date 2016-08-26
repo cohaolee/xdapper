@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" GraphDirection="BottomToTop" Layout="Sugiyama" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 @3 Member=(Name=Delete @4 OverloadingParameters=[(@5 Namespace=System.Data Type=IDbConnection),(ParameterIdentifier=0),(@5 Namespace=System.Data Type=IDbTransaction),(@6 Namespace=System Type=(Name=Nullable @4 GenericArguments=[(@6 Namespace=System Type=Int32)]))]))" Category="CodeSchema_Method" Bounds="118.415,110.48,73.2333333333333,25.24" CodeSchemaProperty_IsExtension="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Delete" FunctionTypeFlags="方法" Label="Delete" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Workspace/Git/xdapper/Dapper.Contrib/SqlMapperExtensions.cs StartLineNumber=315 StartCharacterOffset=8 EndLineNumber=315 EndCharacterOffset=8)" />
+    <Node Id="(@1 @2 @3 Member=(Name=DeleteAll @4 OverloadingParameters=[(@5 Namespace=System.Data Type=IDbConnection),(@5 Namespace=System.Data Type=IDbTransaction),(@6 Namespace=System Type=(Name=Nullable @4 GenericArguments=[(@6 Namespace=System Type=Int32)]))]))" Category="CodeSchema_Method" Bounds="5.6843418860808E-14,110.48,88.0633333333333,25.24" CodeSchemaProperty_IsExtension="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="DeleteAll" FunctionTypeFlags="方法" Label="DeleteAll" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Workspace/Git/xdapper/Dapper.Contrib/SqlMapperExtensions.cs StartLineNumber=349 StartCharacterOffset=8 EndLineNumber=349 EndCharacterOffset=8)" />
+    <Node Id="(@1 @2 @3 Member=(Name=Get @4 OverloadingParameters=[(@5 Namespace=System.Data Type=IDbConnection),(@6 Namespace=System Type=Object),(@5 Namespace=System.Data Type=IDbTransaction),(@6 Namespace=System Type=(Name=Nullable @4 GenericArguments=[(@6 Namespace=System Type=Int32)]))]))" Category="CodeSchema_Method" Bounds="429.93,110.48,56.2033333333333,25.24" CodeSchemaProperty_IsExtension="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Get" FunctionTypeFlags="方法" Label="Get" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Workspace/Git/xdapper/Dapper.Contrib/SqlMapperExtensions.cs StartLineNumber=136 StartCharacterOffset=8 EndLineNumber=136 EndCharacterOffset=8)" />
+    <Node Id="(@1 @2 @3 Member=(Name=Insert @4 OverloadingParameters=[(@5 Namespace=System.Data Type=IDbConnection),(ParameterIdentifier=0),(@5 Namespace=System.Data Type=IDbTransaction),(@6 Namespace=System Type=(Name=Nullable @4 GenericArguments=[(@6 Namespace=System Type=Int32)]))]))" Category="CodeSchema_Method" Bounds="330.863333333333,110.48,68.3366666666667,25.24" CodeSchemaProperty_IsExtension="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Insert" FunctionTypeFlags="方法" Label="Insert" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Workspace/Git/xdapper/Dapper.Contrib/SqlMapperExtensions.cs StartLineNumber=224 StartCharacterOffset=8 EndLineNumber=224 EndCharacterOffset=8)" />
+    <Node Id="(@1 @2 @3 Member=(Name=Update @4 OverloadingParameters=[(@5 Namespace=System.Data Type=IDbConnection),(ParameterIdentifier=0),(@5 Namespace=System.Data Type=IDbTransaction),(@6 Namespace=System Type=(Name=Nullable @4 GenericArguments=[(@6 Namespace=System Type=Int32)]))]))" Category="CodeSchema_Method" Bounds="221.925,110.48,78.2133333333333,25.24" CodeSchemaProperty_IsExtension="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Update" FunctionTypeFlags="方法" Label="Update" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Workspace/Git/xdapper/Dapper.Contrib/SqlMapperExtensions.cs StartLineNumber=266 StartCharacterOffset=8 EndLineNumber=266 EndCharacterOffset=8)" />
+    <Node Id="(@1 @2 @3 Member=AdapterDictionary)" Category="CodeSchema_Field" Bounds="291.653333333333,220.96,141.883333333333,25.24" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="AdapterDictionary" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Workspace/Git/xdapper/Dapper.Contrib/SqlMapperExtensions.cs StartLineNumber=31 StartCharacterOffset=58 EndLineNumber=31 EndCharacterOffset=58)" />
+    <Node Id="(@1 @2 @3 Member=ComputedProperties)" Category="CodeSchema_Field" Bounds="2.8421709430404E-14,0,156.553333333333,25.24" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="ComputedProperties" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Workspace/Git/xdapper/Dapper.Contrib/SqlMapperExtensions.cs StartLineNumber=27 StartCharacterOffset=93 EndLineNumber=27 EndCharacterOffset=93)" />
+    <Node Id="(@1 @2 @3 Member=GetQueries)" Category="CodeSchema_Field" Bounds="2.1316282072803E-14,220.96,101.326666666667,25.24" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="GetQueries" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Workspace/Git/xdapper/Dapper.Contrib/SqlMapperExtensions.cs StartLineNumber=28 StartCharacterOffset=80 EndLineNumber=28 EndCharacterOffset=80)" />
+    <Node Id="(@1 @2 @3 Member=KeyProperties)" Category="CodeSchema_Field" Bounds="340.068333333333,0,116.416666666667,25.24" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="KeyProperties" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Workspace/Git/xdapper/Dapper.Contrib/SqlMapperExtensions.cs StartLineNumber=25 StartCharacterOffset=99 EndLineNumber=25 EndCharacterOffset=99)" />
+    <Node Id="(@1 @2 @3 Member=TypeProperties)" Category="CodeSchema_Field" Bounds="186.605,0,123.343333333333,25.24" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="TypeProperties" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Workspace/Git/xdapper/Dapper.Contrib/SqlMapperExtensions.cs StartLineNumber=26 StartCharacterOffset=99 EndLineNumber=26 EndCharacterOffset=99)" />
+    <Node Id="(@1 @2 @3 Member=TypeTableName)" Category="CodeSchema_Field" Bounds="131.326666666667,220.96,130.326666666667,25.24" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="TypeTableName" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Workspace/Git/xdapper/Dapper.Contrib/SqlMapperExtensions.cs StartLineNumber=29 StartCharacterOffset=80 EndLineNumber=29 EndCharacterOffset=80)" />
+    <Node Id="(@1 @2 Type=(Name=IProxy ParentType=SqlMapperExtensions))" Category="CodeSchema_Interface" Bounds="3.5527136788005E-14,276.2,96.5166666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IProxy" DelayedChildNodesState="NotFetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IProxy" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Workspace/Git/xdapper/Dapper.Contrib/SqlMapperExtensions.cs StartLineNumber=20 StartCharacterOffset=8 EndLineNumber=20 EndCharacterOffset=8)" />
+    <Node Id="(@1 @2 Type=(Name=ProxyGenerator ParentType=SqlMapperExtensions))" Category="CodeSchema_Class" Bounds="126.516666666667,276.2,150.826666666667,25" CodeSchemaProperty_IsPrivate="True" CommonLabel="ProxyGenerator" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="ProxyGenerator" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Workspace/Git/xdapper/Dapper.Contrib/SqlMapperExtensions.cs StartLineNumber=367 StartCharacterOffset=8 EndLineNumber=367 EndCharacterOffset=8)">
+      <Category Ref="Category1" />
+    </Node>
+    <Node Id="操作" Category="Comment" Bounds="236.031666666667,165.72,50,25.24" />
+    <Node Id="类型缓存" Category="Comment" Bounds="214.276666666667,55.24,68,25.24" />
+  </Nodes>
+  <Links>
+    <Link Source="操作" Target="(@1 @2 @3 Member=(Name=Delete @4 OverloadingParameters=[(@5 Namespace=System.Data Type=IDbConnection),(ParameterIdentifier=0),(@5 Namespace=System.Data Type=IDbTransaction),(@6 Namespace=System Type=(Name=Nullable @4 GenericArguments=[(@6 Namespace=System Type=Int32)]))]))" Bounds="187.229431152344,139.879287719727,49.9508361816406,26.0309906005859" />
+    <Link Source="操作" Target="(@1 @2 @3 Member=(Name=DeleteAll @4 OverloadingParameters=[(@5 Namespace=System.Data Type=IDbConnection),(@5 Namespace=System.Data Type=IDbTransaction),(@6 Namespace=System Type=(Name=Nullable @4 GenericArguments=[(@6 Namespace=System Type=Int32)]))]))" Bounds="96.390022277832,136.428451538086,139.641639709473,35.5475006103516" />
+    <Link Source="操作" Target="(@1 @2 @3 Member=(Name=Get @4 OverloadingParameters=[(@5 Namespace=System.Data Type=IDbConnection),(@6 Namespace=System Type=Object),(@5 Namespace=System.Data Type=IDbTransaction),(@6 Namespace=System Type=(Name=Nullable @4 GenericArguments=[(@6 Namespace=System Type=Int32)]))]))" Bounds="286.031677246094,133.409805297852,135.232574462891,37.9200439453125" />
+    <Link Source="操作" Target="(@1 @2 @3 Member=(Name=Insert @4 OverloadingParameters=[(@5 Namespace=System.Data Type=IDbConnection),(ParameterIdentifier=0),(@5 Namespace=System.Data Type=IDbTransaction),(@6 Namespace=System Type=(Name=Nullable @4 GenericArguments=[(@6 Namespace=System Type=Int32)]))]))" Bounds="284.622955322266,139.941802978516,48.7007446289063,25.8675994873047" />
+    <Link Source="操作" Target="(@1 @2 @3 Member=(Name=Update @4 OverloadingParameters=[(@5 Namespace=System.Data Type=IDbConnection),(ParameterIdentifier=0),(@5 Namespace=System.Data Type=IDbTransaction),(@6 Namespace=System Type=(Name=Nullable @4 GenericArguments=[(@6 Namespace=System Type=Int32)]))]))" Bounds="261.031677246094,144.720001220703,0,21" />
+    <Link Source="类型缓存" Target="(@1 @2 @3 Member=ComputedProperties)" Bounds="125.673919677734,28.0213184356689,88.6460571289063,28.8047542572021" />
+    <Link Source="类型缓存" Target="(@1 @2 @3 Member=KeyProperties)" Bounds="281.470886230469,28.3502006530762,74.0916137695313,27.2854766845703" />
+    <Link Source="类型缓存" Target="(@1 @2 @3 Member=TypeProperties)" Bounds="248.276672363281,34.2400016784668,0,21" />
+  </Links>
+  <Categories>
+    <Category Id="Category1" Label="类别 1" Background="#FFE51400" IsTag="True" />
+    <Category Id="CodeSchema_Class" Label="类" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="类" />
+    <Category Id="CodeSchema_Field" Label="字段" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="字段" />
+    <Category Id="CodeSchema_Interface" Label="接口" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Interface" NavigationActionLabel="接口" />
+    <Category Id="CodeSchema_Member" Label="编号" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="成员" />
+    <Category Id="CodeSchema_Method" Label="方法" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="方法" />
+    <Category Id="CodeSchema_Type" Label="类型" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="类型" />
+    <Category Id="Comment" Label="注释" Description="表示在图表中用户定义的注释" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="注释" />
+  </Categories>
+  <Properties>
+    <Property Id="Background" Label="背景" Description="背景色" DataType="System.Windows.Media.Brush" />
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsExtension" Label="是扩展方法" Description="一个标志，用于指示该方法是否为扩展方法" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="是私有的" Description="一个标志，用于指示该范围是“私有”范围" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="是公共的" Description="一个标志，用于指示该范围是“公共”范围" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsStatic" Label="是静态的" Description="一个标志，用于指示该成员是静态成员" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DataVirtualized" Label="已虚拟化数据" Description="如果为 true，则图中可以包含表示虚拟化节点/链接(即，不在图中实际创建)的数据的节点和链接。" DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="DelayedChildNodesState" Label="延迟的子节点状态" Description="如果未指定延迟的子节点状态，则为 Unspecified。如果尚未将组包含的子节点提取到关系图中，则为 NotFetched。如果已提取组内的所有延迟的子节点，则为 Fetched。" DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="DelayedCrossGroupLinksState" Label="延迟的跨组链接状态" Description="如果未指定延迟的跨组链接状态，则为 Unspecified。如果尚未将此节点上延迟的跨组链接提取到关系图中，则为 NotFetched。如果已提取所有延迟的跨组链接，则为 Fetched。" DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="FunctionTypeFlags" Label="FunctionTypeFlags" Description="FunctionTypeFlags" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="组" Description="将节点显示为组" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="图标" Description="图标" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsProviderRoot" Label="IsProviderRoot" Description="IsProviderRoot" DataType="System.Boolean" />
+    <Property Id="IsTag" DataType="System.Boolean" />
+    <Property Id="Label" Label="标签" Description="可批注对象的可显示标签" DataType="System.String" />
+    <Property Id="Language" Label="语言" Description="语言" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="起始行号" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="程序集" ValueType="Uri" />
+    <Name Id="GenericArguments" Label="泛型实参" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" />
+    <Name Id="GenericParameterCount" Label="泛型形参计数" ValueType="System.String" />
+    <Name Id="Member" Label="编号" ValueType="System.Object" />
+    <Name Id="Name" Label="名称" ValueType="System.String" />
+    <Name Id="Namespace" Label="命名空间" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="参数" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="ParameterIdentifier" Label="参数标识符" ValueType="System.String" />
+    <Name Id="ParentType" Label="父类型" ValueType="System.Object" />
+    <Name Id="Type" Label="类型" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(c2fc4df5-c8d1-4ea8-8e0c-85a3793eb0bb.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=Dapper.Contrib.Extensions" />
+    <Alias n="3" Id="Type=SqlMapperExtensions" />
+    <Alias n="4" Id="GenericParameterCount=1" />
+    <Alias n="5" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.0/System.Data.dll" />
+    <Alias n="6" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.0/mscorlib.dll" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="类别 1" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('Category1')" />
+      <Setter Property="Background" Value="#FFE51400" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="结果" ValueLabel="True">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="程序集" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="命名空间" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="接口" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="结构" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="枚举" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="委托" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="类" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="属性" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="方法" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="事件" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="字段" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Out Parameter" ValueLabel="True">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Parameter" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Local Variable" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="外部" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FF424242" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Read" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Target.HasCategory('CodeSchema_Field') And HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="注释" ValueLabel="包含注释">
+      <Condition Expression="HasCategory('Comment')" />
+      <Setter Property="Background" Value="#FFFFFACD" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+      <Setter Property="StrokeThickness" Value="1" />
+      <Setter Property="NodeRadius" Value="2" />
+      <Setter Property="MaxWidth" Value="250" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="c2fc4df5-c8d1-4ea8-8e0c-85a3793eb0bb.OutputPathUri" Value="file:///E:/Workspace/Git/xdapper/Dapper.Contrib/bin/Debug/Dapper.Contrib.dll" />
+    <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+  </Paths>
+</DirectedGraph>

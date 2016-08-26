@@ -10,6 +10,9 @@ namespace Dapper
         Dictionary<string, Clauses> data = new Dictionary<string, Clauses>();
         int seq;
 
+        /// <summary>
+        /// 子句
+        /// </summary>
         class Clause
         {
             public string Sql { get; set; }

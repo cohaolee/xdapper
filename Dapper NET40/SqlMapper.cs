@@ -497,6 +497,10 @@ namespace Dapper
         partial class CacheInfo
         {
             public DeserializerState Deserializer { get; set; }
+
+            /// <summary>
+            /// 用于多类型查询，
+            /// </summary>
             public Func<IDataReader, object>[] OtherDeserializers { get; set; }
             public Action<IDbCommand, object> ParamReader { get; set; }
             private int hitCount;
@@ -2066,6 +2070,13 @@ this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TFourth, TRetu
             };
         }
 
+        /// <summary>
+        /// 生成多序列器
+        /// </summary>
+        /// <param name="types"></param>
+        /// <param name="splitOn"></param>
+        /// <param name="reader"></param>
+        /// <returns></returns>
         private static Func<IDataReader, object>[] GenerateDeserializers(Type[] types, string splitOn, IDataReader reader)
         {
             var deserializers = new List<Func<IDataReader, object>>();
@@ -3584,6 +3595,7 @@ Type type, IDataReader reader, int startBound = 0, int length = -1, bool returnN
                 throw MultiMapException(reader);
             }
 
+            //获取字段名称
             var names = Enumerable.Range(startBound, length).Select(i => reader.GetName(i)).ToArray();
 
             ITypeMap typeMap = GetTypeMap(type);
