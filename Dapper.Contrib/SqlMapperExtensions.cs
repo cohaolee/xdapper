@@ -53,7 +53,13 @@ namespace Dapper.Contrib.Extensions
 																							{"sqlconnection", new SqlServerAdapter()},
 																							{"npgsqlconnection", new PostgresAdapter()},
 																							{"sqliteconnection", new SQLiteAdapter()}
-                                                                                            };
+                                                                                         };
+        /// <summary>
+        /// 实体下面对应的 属性-列名
+        /// </summary>
+        private static readonly ConcurrentDictionary<RuntimeTypeHandle, Dictionary<string, string>> TypePropColumnName = new ConcurrentDictionary<RuntimeTypeHandle, Dictionary<string, string>>();
+
+
         /// <summary>
         /// 获取标识为ComputedAttribute的属性缓存
         /// </summary>

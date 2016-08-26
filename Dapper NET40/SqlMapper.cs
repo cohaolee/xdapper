@@ -3595,7 +3595,7 @@ Type type, IDataReader reader, int startBound = 0, int length = -1, bool returnN
                 throw MultiMapException(reader);
             }
 
-            //获取字段名称
+            //根据reader的列明获取类型属性名称
             var names = Enumerable.Range(startBound, length).Select(i => reader.GetName(i)).ToArray();
 
             ITypeMap typeMap = GetTypeMap(type);
@@ -3656,7 +3656,7 @@ Type type, IDataReader reader, int startBound = 0, int length = -1, bool returnN
                 }
                 else
                 {
-                    var ctor = typeMap.FindConstructor(names, types);
+                    var ctor = typeMap.FindConstructor(names, types);//属性名称获取构造函数
                     if (ctor == null)
                     {
                         string proposedTypes = "(" + string.Join(", ", types.Select((t, i) => t.FullName + " " + names[i]).ToArray()) + ")";
@@ -5234,6 +5234,7 @@ string name, object value = null, DbType? dbType = null, ParameterDirection? dir
 
     /// <summary>
     /// Represents default type mapping strategy used by Dapper
+    /// Dapper用来表示默认的类型映射策略
     /// </summary>
     sealed partial class DefaultTypeMap : SqlMapper.ITypeMap
     {
