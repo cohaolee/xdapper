@@ -5276,6 +5276,11 @@ string name, object value = null, DbType? dbType = null, ParameterDirection? dir
                    null).GetSetMethod(true);
         }
 
+        /// <summary>
+        /// 获取可设置的属性
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         internal static List<PropertyInfo> GetSettableProps(Type t)
         {
             return t
@@ -5365,9 +5370,24 @@ string name, object value = null, DbType? dbType = null, ParameterDirection? dir
         /// <returns>Mapping implementation</returns>
         public SqlMapper.IMemberMap GetMember(string columnName)
         {
-            var property = _properties.FirstOrDefault(p => string.Equals(p.Name, columnName, StringComparison.Ordinal))
-               ?? _properties.FirstOrDefault(p => string.Equals(p.Name, columnName, StringComparison.OrdinalIgnoreCase));
+            PropertyInfo property = null;
 
+            //----属性
+            //自定义列
+            if (UserCustomColumnName)
+            {
+                property = _properties.Where(p => p.GetCustomAttributes(false).OfType<ColumnAttribute>().Any(attr => string.Equals(attr.Name, columnName, StringComparison.Ordinal))).FirstOrDefault()
+                   ?? _properties.Where(p => p.GetCustomAttributes(false).OfType<ColumnAttribute>().Any(attr => string.Equals(attr.Name, columnName, StringComparison.OrdinalIgnoreCase))).FirstOrDefault();
+            }
+
+            //名称相等
+            if (property == null)
+            {
+                property = _properties.FirstOrDefault(p => string.Equals(p.Name, columnName, StringComparison.Ordinal))
+               ?? _properties.FirstOrDefault(p => string.Equals(p.Name, columnName, StringComparison.OrdinalIgnoreCase));
+            }
+
+            //去下划线名称相等
             if (property == null && MatchNamesWithUnderscores)
             {
                 property = _properties.FirstOrDefault(p => string.Equals(p.Name, columnName.Replace("_", ""), StringComparison.Ordinal))
@@ -5377,9 +5397,24 @@ string name, object value = null, DbType? dbType = null, ParameterDirection? dir
             if (property != null)
                 return new SimpleMemberMap(columnName, property);
 
-            var field = _fields.FirstOrDefault(p => string.Equals(p.Name, columnName, StringComparison.Ordinal))
-               ?? _fields.FirstOrDefault(p => string.Equals(p.Name, columnName, StringComparison.OrdinalIgnoreCase));
 
+            //----字段
+            FieldInfo field = null;
+            //自定义列
+            if (UserCustomColumnName)
+            {
+                field = _fields.Where(p => p.GetCustomAttributes(false).OfType<ColumnAttribute>().Any(attr => string.Equals(attr.Name, columnName, StringComparison.Ordinal))).FirstOrDefault()
+                   ?? _fields.Where(p => p.GetCustomAttributes(false).OfType<ColumnAttribute>().Any(attr => string.Equals(attr.Name, columnName, StringComparison.OrdinalIgnoreCase))).FirstOrDefault();
+            }
+
+            //名称相等
+            if (field == null)
+            {
+                field = _fields.FirstOrDefault(p => string.Equals(p.Name, columnName, StringComparison.Ordinal))
+                   ?? _fields.FirstOrDefault(p => string.Equals(p.Name, columnName, StringComparison.OrdinalIgnoreCase));
+            }
+
+            //去下划线名称相等
             if (field == null && MatchNamesWithUnderscores)
             {
                 field = _fields.FirstOrDefault(p => string.Equals(p.Name, columnName.Replace("_", ""), StringComparison.Ordinal))
@@ -5394,19 +5429,44 @@ string name, object value = null, DbType? dbType = null, ParameterDirection? dir
 
         /// <summary>
         /// Should column names like User_Id be allowed to match properties/fields like UserId ?
+        /// 
         /// </summary>
         public static bool MatchNamesWithUnderscores { get; set; }
 
         /// <summary>
-        /// 默认包含下划线
+        /// 使用自定义列名映射
+        /// </summary>
+        public static bool UserCustomColumnName { get; set; }
+
+        /// <summary>
+        /// 默认设置
         /// </summary>
         static DefaultTypeMap()
         {
             MatchNamesWithUnderscores = true;
+            UserCustomColumnName = true;
         }
     }
 
-
+    /// <summary>
+    /// 默认的自定义列名属性（最优先）
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+    public class ColumnAttribute : Attribute
+    {
+        /// <summary>
+        /// 默认的自定义列名属性
+        /// </summary>
+        /// <param name="name">表列名</param>
+        public ColumnAttribute(string name)
+        {
+            Name = name;
+        }
+        /// <summary>
+        /// 表列名
+        /// </summary>
+        public string Name { get; private set; }
+    }
 
     /// <summary>
     /// Implements custom property mapping by user provided criteria (usually presence of some custom attribute with column to member mapping)

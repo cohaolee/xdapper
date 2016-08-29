@@ -30,7 +30,7 @@ namespace SqlMapper
     {
         SqlConnection connection = Program.GetOpenConnection();
 
-        #region Underscores 下划线测试
+        #region cohaolee 新增测试
         public class UnderscoresUser
         {
             public int UserId { get; set; }
@@ -40,8 +40,6 @@ namespace SqlMapper
 
         public void TestUnderscoreMap()
         {
-            Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
-
             var createSql = @"
                 create table #Users (user_id int, user_name varchar(20))
                 insert #Users values(99, 'Sam')
@@ -64,6 +62,39 @@ namespace SqlMapper
             }
         }
 
+
+        public class CustomColumnAttrUser
+        {
+            [Column("id")]
+            public int UserId { get; set; }
+
+            [Column("name")]
+            public string UserName { get; set; }
+        }
+
+        public void TestCustomColumnAttrUserMap()
+        {
+            var createSql = @"
+                create table #Users (id int, name varchar(20))
+                insert #Users values(99, 'Sam')
+                insert #Users values(2, 'I am')
+";
+            connection.Execute(createSql);
+            try
+            {
+                string sql = @"select * from #Users p 
+                           Order by p.id";
+                var data = connection.Query<CustomColumnAttrUser>(sql).ToArray();
+                var p = data.First();
+
+                p.UserId.IsEqualTo(2);
+                p.UserName.IsEqualTo("I am");
+            }
+            finally
+            {
+                connection.Execute("drop table #Users");
+            }
+        }
         #endregion
 
         public class AbstractInheritance

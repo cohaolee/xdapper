@@ -54,7 +54,7 @@ namespace SqlMapper
 #if DEBUG
             //RunTests();
 
-            (new Tests()).TestUnderscoreMap();
+            (new Tests()).TestCustomColumnAttrUserMap();
 
 #else 
             EnsureDBSetup();

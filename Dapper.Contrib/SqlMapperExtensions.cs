@@ -57,7 +57,8 @@ namespace Dapper.Contrib.Extensions
         /// <summary>
         /// 实体下面对应的 属性key-列名column
         /// </summary>
-        private static readonly ConcurrentDictionary<RuntimeTypeHandle, Dictionary<PropertyInfo, string>> TypePropColumnName = new ConcurrentDictionary<RuntimeTypeHandle, Dictionary<PropertyInfo, string>>();
+        private static readonly ConcurrentDictionary<RuntimeTypeHandle, Dictionary<PropertyInfo, string>> TypePropColumnName
+            = new ConcurrentDictionary<RuntimeTypeHandle, Dictionary<PropertyInfo, string>>();
 
 
         /// <summary>
@@ -166,7 +167,7 @@ namespace Dapper.Contrib.Extensions
 
                 // TODO: pluralizer 
                 // TODO: query information schema and only select fields that are both in information schema and underlying class / interface 
-                sql = "select * from " + name + " where " + onlyKey.Name + " = @id";
+                sql = "select * from " + name + " where " + GetColumnName(type, onlyKey) + " = @id";
                 GetQueries[type.TypeHandle] = sql;
             }
 
@@ -230,6 +231,56 @@ namespace Dapper.Contrib.Extensions
             return name;
         }
 
+        private static string GetColumnName(Type type, PropertyInfo prop)
+        {
+            Dictionary<PropertyInfo, string> prop2name;
+            if (!TypePropColumnName.TryGetValue(type.TypeHandle, out prop2name))
+            {
+                var allProperties = TypePropertiesCache(type);
+                var computedProperties = ComputedPropertiesCache(type);//不需要映射属性
+                var mappingProperties = allProperties.Except(computedProperties);
+                prop2name = new Dictionary<PropertyInfo, string>();
+                foreach (var item in mappingProperties)
+                {
+                    string columnName = null;
+                    if (DefaultTypeMap.UserCustomColumnName)
+                    {
+                        var attr = item.GetCustomAttributes(false).OfType<ColumnAttribute>().FirstOrDefault();
+                        if (attr != null)
+                        {
+                            columnName = attr.Name;
+                            prop2name.Add(item, columnName);
+                            continue;
+                        }
+                    }
+
+                    if (DefaultTypeMap.MatchNamesWithUnderscores)
+                    {
+                        var sb = new StringBuilder();
+                        for (int i = 0; i < item.Name.Length; i++)
+                        {
+                            var c = item.Name.ElementAt(i);
+                            if (i > 0 && i < item.Name.Length - 1
+                                && c >= 'A' && c <= 'Z')
+                            {
+                                sb.Append("_");
+                            }
+                            sb.Append(c);
+                        }
+                        columnName = sb.ToString().ToLower();
+                        prop2name.Add(item, columnName);
+                        continue;
+                    }
+
+                    columnName = item.Name;
+                    prop2name.Add(item, columnName);
+                }
+
+                TypePropColumnName[type.TypeHandle] = prop2name;
+            }
+            return prop2name[prop];
+        }
+
         /// <summary>
         /// Inserts an entity into table "Ts" and returns identity id.
         /// </summary>
@@ -253,7 +304,7 @@ namespace Dapper.Contrib.Extensions
             for (var i = 0; i < allPropertiesExceptKeyAndComputed.Count(); i++)
             {
                 var property = allPropertiesExceptKeyAndComputed.ElementAt(i);
-                sbColumnList.AppendFormat("[{0}]", property.Name);
+                sbColumnList.AppendFormat("[{0}]", GetColumnName(type, property)); //列名
                 if (i < allPropertiesExceptKeyAndComputed.Count() - 1)
                     sbColumnList.Append(", ");
             }
@@ -304,7 +355,7 @@ namespace Dapper.Contrib.Extensions
             for (var i = 0; i < nonIdProps.Count(); i++)
             {
                 var property = nonIdProps.ElementAt(i);
-                sb.AppendFormat("{0} = @{1}", property.Name, property.Name);
+                sb.AppendFormat("{0} = @{1}", GetColumnName(type, property), property.Name);
                 if (i < nonIdProps.Count() - 1)
                     sb.AppendFormat(", ");
             }
@@ -312,7 +363,7 @@ namespace Dapper.Contrib.Extensions
             for (var i = 0; i < keyProperties.Count(); i++)
             {
                 var property = keyProperties.ElementAt(i);
-                sb.AppendFormat("{0} = @{1}", property.Name, property.Name);
+                sb.AppendFormat("{0} = @{1}", GetColumnName(type, property), property.Name);
                 if (i < keyProperties.Count() - 1)
                     sb.AppendFormat(" and ");
             }
@@ -346,7 +397,7 @@ namespace Dapper.Contrib.Extensions
             for (var i = 0; i < keyProperties.Count(); i++)
             {
                 var property = keyProperties.ElementAt(i);
-                sb.AppendFormat("{0} = @{1}", property.Name, property.Name);
+                sb.AppendFormat("{0} = @{1}", GetColumnName(type, property), property.Name);
                 if (i < keyProperties.Count() - 1)
                     sb.AppendFormat(" and ");
             }
@@ -552,6 +603,7 @@ namespace Dapper.Contrib.Extensions
     [AttributeUsage(AttributeTargets.Property)]
     public class KeyAttribute : Attribute
     {
+
     }
 
     [AttributeUsage(AttributeTargets.Property)]

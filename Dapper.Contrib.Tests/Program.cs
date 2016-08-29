@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Diagnostics;
 using System.IO;
@@ -13,8 +14,11 @@ namespace Dapper.Contrib.Tests
     {
         static void Main(string[] args)
         {
-            Setup();
-            RunTests();
+            //Setup();
+            //RunTests();
+
+            new CustomMapTests().TestSimpleGet();
+
         }
 
         private static void Setup()
@@ -36,6 +40,9 @@ namespace Dapper.Contrib.Tests
             }
             Console.WriteLine("Created database");
         }
+
+
+
 
         private static void RunTests()
         {
