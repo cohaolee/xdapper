@@ -8,7 +8,7 @@
     <ProjectGuid>{A4F4A06E-D179-4251-A232-AEF4CE9AD9B5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XDapper.Contrib.Tests</RootNamespace>
+    <RootNamespace>Dapper.Contrib.Tests</RootNamespace>
     <AssemblyName>Dapper.Contrib.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>

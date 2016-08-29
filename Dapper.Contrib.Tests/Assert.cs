@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace XDapper.Contrib.Tests
+namespace Dapper.Contrib.Tests
 {
     /// <summary>
     /// Assert extensions borrowed from Sam's code in DapperTests

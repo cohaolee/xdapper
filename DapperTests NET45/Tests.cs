@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using XDapper;
+using Dapper;
 using SqlMapper;
 using System.Data;
 using System.Diagnostics;
@@ -162,7 +162,7 @@ namespace DapperTests_NET45
         {
             using (var conn = Program.GetOpenConnection())
             {
-                using (XDapper.SqlMapper.GridReader multi = conn.QueryMultipleAsync("select 1; select 2").Result)
+                using (Dapper.SqlMapper.GridReader multi = conn.QueryMultipleAsync("select 1; select 2").Result)
                 {
                     multi.ReadAsync<int>().Result.Single().IsEqualTo(1);
                     multi.ReadAsync<int>().Result.Single().IsEqualTo(2);
@@ -173,7 +173,7 @@ namespace DapperTests_NET45
         {
             using (var conn = Program.GetClosedConnection())
             {
-                using (XDapper.SqlMapper.GridReader multi = conn.QueryMultipleAsync("select 1; select 2").Result)
+                using (Dapper.SqlMapper.GridReader multi = conn.QueryMultipleAsync("select 1; select 2").Result)
                 {
                     multi.ReadAsync<int>().Result.Single().IsEqualTo(1);
                     multi.ReadAsync<int>().Result.Single().IsEqualTo(2);
@@ -319,8 +319,8 @@ namespace DapperTests_NET45
             }, commandType: CommandType.Text, flags: CommandFlags.NoCache);
 
             int c, d;
-            XDapper.SqlMapper.PurgeQueryCache();
-            int before = XDapper.SqlMapper.GetCachedSQLCount();
+            Dapper.SqlMapper.PurgeQueryCache();
+            int before = Dapper.SqlMapper.GetCachedSQLCount();
             using (var sqlConnection = Program.GetOpenConnection(true))
             {
                 using (var multi = sqlConnection.QueryMultiple(cmdDef))
@@ -329,7 +329,7 @@ namespace DapperTests_NET45
                     d = multi.Read<int>().Single();
                 }
             }
-            int after = XDapper.SqlMapper.GetCachedSQLCount();
+            int after = Dapper.SqlMapper.GetCachedSQLCount();
             before.IsEqualTo(0);
             after.IsEqualTo(0);
             c.IsEqualTo(123);

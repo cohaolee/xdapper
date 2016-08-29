@@ -7,7 +7,7 @@
     <ProjectGuid>{7A85178F-4ADC-4E4C-BF08-17FC99488A9A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XDapper.Contrib.Tests_NET45</RootNamespace>
+    <RootNamespace>Dapper.Contrib.Tests_NET45</RootNamespace>
     <AssemblyName>Dapper.Contrib.Tests NET45</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

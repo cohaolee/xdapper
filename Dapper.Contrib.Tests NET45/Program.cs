@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XDapper.Contrib.Tests_NET45
+namespace Dapper.Contrib.Tests_NET45
 {
     class Program
     {

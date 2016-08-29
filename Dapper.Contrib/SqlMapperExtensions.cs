@@ -9,11 +9,11 @@ using System.Collections.Concurrent;
 using System.Reflection.Emit;
 using System.Threading;
 using System.Runtime.CompilerServices;
-using XDapper;
+using Dapper;
 
 #pragma warning disable 1573, 1591 // xml comments
 
-namespace XDapper.Contrib.Extensions
+namespace Dapper.Contrib.Extensions
 {
 
     public static class SqlMapperExtensions
@@ -412,7 +412,7 @@ namespace XDapper.Contrib.Extensions
 
                 var moduleBuilder = assemblyBuilder.DefineDynamicModule("SqlMapperExtensions." + typeOfT.Name); //NOTE: to save, add "asdasd.dll" parameter
 
-                var interfaceType = typeof(XDapper.Contrib.Extensions.SqlMapperExtensions.IProxy);
+                var interfaceType = typeof(Dapper.Contrib.Extensions.SqlMapperExtensions.IProxy);
                 var typeBuilder = moduleBuilder.DefineType(typeOfT.Name + "_" + Guid.NewGuid(),
                     TypeAttributes.Public | TypeAttributes.Class);
                 typeBuilder.AddInterfaceImplementation(typeOfT);
@@ -472,8 +472,8 @@ namespace XDapper.Contrib.Extensions
 
                 property.SetGetMethod(currGetPropMthdBldr);
                 property.SetSetMethod(currSetPropMthdBldr);
-                var getMethod = typeof(XDapper.Contrib.Extensions.SqlMapperExtensions.IProxy).GetMethod("get_" + "IsDirty");
-                var setMethod = typeof(XDapper.Contrib.Extensions.SqlMapperExtensions.IProxy).GetMethod("set_" + "IsDirty");
+                var getMethod = typeof(Dapper.Contrib.Extensions.SqlMapperExtensions.IProxy).GetMethod("get_" + "IsDirty");
+                var setMethod = typeof(Dapper.Contrib.Extensions.SqlMapperExtensions.IProxy).GetMethod("set_" + "IsDirty");
                 typeBuilder.DefineMethodOverride(currGetPropMthdBldr, getMethod);
                 typeBuilder.DefineMethodOverride(currSetPropMthdBldr, setMethod);
 

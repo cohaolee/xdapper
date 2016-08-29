@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using XDapper;
+using Dapper;
 using System.Data.SqlServerCe;
 using System.IO;
 using System.Data;
@@ -40,7 +40,7 @@ namespace SqlMapper
 
         public void TestUnderscoreMap()
         {
-            XDapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+            Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
 
             var createSql = @"
                 create table #Users (user_id int, user_name varchar(20))
@@ -1657,7 +1657,7 @@ end");
         }
 
 
-        class IntDynamicParam : XDapper.SqlMapper.IDynamicParameters
+        class IntDynamicParam : Dapper.SqlMapper.IDynamicParameters
         {
             IEnumerable<int> numbers;
             public IntDynamicParam(IEnumerable<int> numbers)
@@ -1665,7 +1665,7 @@ end");
                 this.numbers = numbers;
             }
 
-            public void AddParameters(IDbCommand command, XDapper.SqlMapper.Identity identity)
+            public void AddParameters(IDbCommand command, Dapper.SqlMapper.Identity identity)
             {
                 var sqlCommand = (SqlCommand)command;
                 sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -1720,7 +1720,7 @@ end");
             }
         }
 
-        class DynamicParameterWithIntTVP : XDapper.DynamicParameters, XDapper.SqlMapper.IDynamicParameters
+        class DynamicParameterWithIntTVP : Dapper.DynamicParameters, Dapper.SqlMapper.IDynamicParameters
         {
             IEnumerable<int> numbers;
             public DynamicParameterWithIntTVP(IEnumerable<int> numbers)
@@ -1728,7 +1728,7 @@ end");
                 this.numbers = numbers;
             }
 
-            public new void AddParameters(IDbCommand command, XDapper.SqlMapper.Identity identity)
+            public new void AddParameters(IDbCommand command, Dapper.SqlMapper.Identity identity)
             {
                 base.AddParameters(command, identity);
 
@@ -1791,7 +1791,7 @@ end");
             }
         }
 
-        class IntCustomParam : XDapper.SqlMapper.ICustomQueryParameter
+        class IntCustomParam : Dapper.SqlMapper.ICustomQueryParameter
         {
             IEnumerable<int> numbers;
             public IntCustomParam(IEnumerable<int> numbers)
@@ -2030,7 +2030,7 @@ Order by p.Id";
             }
         }
 
-        public class DbParams : XDapper.SqlMapper.IDynamicParameters, IEnumerable<IDbDataParameter>
+        public class DbParams : Dapper.SqlMapper.IDynamicParameters, IEnumerable<IDbDataParameter>
         {
             private readonly List<IDbDataParameter> parameters = new List<IDbDataParameter>();
             public IEnumerator<IDbDataParameter> GetEnumerator() { return parameters.GetEnumerator(); }
@@ -2039,8 +2039,8 @@ Order by p.Id";
             {
                 parameters.Add(value);
             }
-            void XDapper.SqlMapper.IDynamicParameters.AddParameters(IDbCommand command,
-                XDapper.SqlMapper.Identity identity)
+            void Dapper.SqlMapper.IDynamicParameters.AddParameters(IDbCommand command,
+                Dapper.SqlMapper.Identity identity)
             {
                 foreach (IDbDataParameter parameter in parameters)
                     command.Parameters.Add(parameter);
@@ -2525,14 +2525,14 @@ Order by p.Id";
             // custom mapping
             var map = new CustomPropertyTypeMap(typeof(TypeWithMapping),
                 (type, columnName) => type.GetProperties().Where(prop => prop.GetCustomAttributes(false).OfType<DescriptionAttribute>().Any(attr => attr.Description == columnName)).FirstOrDefault());
-            XDapper.SqlMapper.SetTypeMap(typeof(TypeWithMapping), map);
+            Dapper.SqlMapper.SetTypeMap(typeof(TypeWithMapping), map);
 
             item = connection.Query<TypeWithMapping>("Select 'AVal' as A, 'BVal' as B").Single();
             item.A.IsEqualTo("BVal");
             item.B.IsEqualTo("AVal");
 
             // reset to default
-            XDapper.SqlMapper.SetTypeMap(typeof(TypeWithMapping), null);
+            Dapper.SqlMapper.SetTypeMap(typeof(TypeWithMapping), null);
             item = connection.Query<TypeWithMapping>("Select 'AVal' as A, 'BVal' as B").Single();
             item.A.IsEqualTo("AVal");
             item.B.IsEqualTo("BVal");
@@ -2901,14 +2901,14 @@ end");
             var result01 = connection.Query<string>(sql, param).FirstOrDefault();
             result01.IsEqualTo("nvarchar");
 
-            XDapper.SqlMapper.PurgeQueryCache();
+            Dapper.SqlMapper.PurgeQueryCache();
 
-            XDapper.SqlMapper.AddTypeMap(typeof(string), DbType.AnsiString);   // Change Default String Handling to AnsiString
+            Dapper.SqlMapper.AddTypeMap(typeof(string), DbType.AnsiString);   // Change Default String Handling to AnsiString
             var result02 = connection.Query<string>(sql, param).FirstOrDefault();
             result02.IsEqualTo("varchar");
 
-            XDapper.SqlMapper.PurgeQueryCache();
-            XDapper.SqlMapper.AddTypeMap(typeof(string), DbType.String);  // Restore Default to Unicode String
+            Dapper.SqlMapper.PurgeQueryCache();
+            Dapper.SqlMapper.AddTypeMap(typeof(string), DbType.String);  // Restore Default to Unicode String
         }
 
         class TransactedConnection : IDbConnection
@@ -3329,7 +3329,7 @@ option (optimize for (@vals unKnoWn))";
         }
         public void DBGeography_SO24405645_SO24402424()
         {
-            XDapper.EntityFramework.Handlers.Register();
+            Dapper.EntityFramework.Handlers.Register();
 
             connection.Execute("create table #Geo (id int, geo geography, geometry geometry)");
 
@@ -3349,7 +3349,7 @@ option (optimize for (@vals unKnoWn))";
 
         public void SqlGeography_SO25538154()
         {
-            XDapper.SqlMapper.ResetTypeHandlers();
+            Dapper.SqlMapper.ResetTypeHandlers();
             connection.Execute("create table #SqlGeo (id int, geo geography, geometry geometry)");
 
             var obj = new HazSqlGeo
@@ -3368,7 +3368,7 @@ option (optimize for (@vals unKnoWn))";
 
         public void SqlHierarchyId_SO18888911()
         {
-            XDapper.SqlMapper.ResetTypeHandlers();
+            Dapper.SqlMapper.ResetTypeHandlers();
             var row = connection.Query<HazSqlHierarchy>("select 3 as [Id], hierarchyid::Parse('/1/2/3/') as [Path]").Single();
             row.Id.Equals(3);
             row.Path.IsNotNull();
@@ -3496,7 +3496,7 @@ option (optimize for (@vals unKnoWn))";
             public string TaxInvoiceNumber { get { return fTaxInvoiceNumber; } set { fTaxInvoiceNumber = value; } }
         }
 
-        public class RatingValueHandler : XDapper.SqlMapper.TypeHandler<RatingValue>
+        public class RatingValueHandler : Dapper.SqlMapper.TypeHandler<RatingValue>
         {
             private RatingValueHandler() { }
             public static readonly RatingValueHandler Default = new RatingValueHandler();
@@ -3529,7 +3529,7 @@ option (optimize for (@vals unKnoWn))";
 
         public void SO24740733_TestCustomValueHandler()
         {
-            XDapper.SqlMapper.AddTypeHandler(RatingValueHandler.Default);
+            Dapper.SqlMapper.AddTypeHandler(RatingValueHandler.Default);
             var foo = connection.Query<MyResult>("SELECT 'Foo' AS CategoryName, 200 AS CategoryRating").Single();
 
             foo.CategoryName.IsEqualTo("Foo");
@@ -3538,7 +3538,7 @@ option (optimize for (@vals unKnoWn))";
 
         public void SO24740733_TestCustomValueSingleColumn()
         {
-            XDapper.SqlMapper.AddTypeHandler(RatingValueHandler.Default);
+            Dapper.SqlMapper.AddTypeHandler(RatingValueHandler.Default);
             var foo = connection.Query<RatingValue>("SELECT 200 AS CategoryRating").Single();
 
             foo.Value.IsEqualTo(200);
@@ -3576,7 +3576,7 @@ option (optimize for (@vals unKnoWn))";
             int? k = connection.ExecuteScalar<int?>("select @i", new { i = default(int?) });
             k.IsNull();
 
-            XDapper.EntityFramework.Handlers.Register();
+            Dapper.EntityFramework.Handlers.Register();
             var geo = DbGeography.LineFromText("LINESTRING(-122.360 47.656, -122.343 47.656 )", 4326);
             var geo2 = connection.ExecuteScalar<DbGeography>("select @geo", new { geo });
             geo2.IsNotNull();
@@ -3613,8 +3613,8 @@ option (optimize for (@vals unKnoWn))";
 
         public void Issue136_ValueTypeHandlers()
         {
-            XDapper.SqlMapper.ResetTypeHandlers();
-            XDapper.SqlMapper.AddTypeHandler(typeof(LocalDate), LocalDateHandler.Default);
+            Dapper.SqlMapper.ResetTypeHandlers();
+            Dapper.SqlMapper.AddTypeHandler(typeof(LocalDate), LocalDateHandler.Default);
             var param = new LocalDateResult
             {
                 NotNullable = new LocalDate { Year = 2014, Month = 7, Day = 25 },
@@ -3624,17 +3624,17 @@ option (optimize for (@vals unKnoWn))";
 
             var result = connection.Query<LocalDateResult>("SELECT @NotNullable AS NotNullable, @NullableNotNull AS NullableNotNull, @NullableIsNull AS NullableIsNull", param).Single();
 
-            XDapper.SqlMapper.ResetTypeHandlers();
-            XDapper.SqlMapper.AddTypeHandler(typeof(LocalDate?), LocalDateHandler.Default);
+            Dapper.SqlMapper.ResetTypeHandlers();
+            Dapper.SqlMapper.AddTypeHandler(typeof(LocalDate?), LocalDateHandler.Default);
             result = connection.Query<LocalDateResult>("SELECT @NotNullable AS NotNullable, @NullableNotNull AS NullableNotNull, @NullableIsNull AS NullableIsNull", param).Single();
         }
-        public class LocalDateHandler : XDapper.SqlMapper.TypeHandler<LocalDate>
+        public class LocalDateHandler : Dapper.SqlMapper.TypeHandler<LocalDate>
         {
             private LocalDateHandler() { }
 
             // Make the field type ITypeHandler to ensure it cannot be used with SqlMapper.AddTypeHandler<T>(TypeHandler<T>)
             // by mistake.
-            public static readonly XDapper.SqlMapper.ITypeHandler Default = new LocalDateHandler();
+            public static readonly Dapper.SqlMapper.ITypeHandler Default = new LocalDateHandler();
 
             public override LocalDate Parse(object value)
             {

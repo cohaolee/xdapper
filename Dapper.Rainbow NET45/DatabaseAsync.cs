@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XDapper
+namespace Dapper
 {
     public abstract partial class Database<TDatabase> : IDisposable where TDatabase : Database<TDatabase>, new()
     {

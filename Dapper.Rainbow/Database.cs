@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
-using XDapper;
+using Dapper;
 using System.Collections.Concurrent;
 using System.Reflection;
 using System.Text;
@@ -16,7 +16,7 @@ using System.Data.Common;
 using System.Diagnostics;
 using System.Reflection.Emit;
 
-namespace XDapper
+namespace Dapper
 {
     /// <summary>
     /// A container for a database, assumes all the tables have an Id column named Id
@@ -320,7 +320,7 @@ namespace XDapper
             return SqlMapper.Query(connection, sql, param as object, transaction, buffered);
         }
 
-        public XDapper.SqlMapper.GridReader QueryMultiple(string sql, dynamic param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
+        public Dapper.SqlMapper.GridReader QueryMultiple(string sql, dynamic param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             return SqlMapper.QueryMultiple(connection, sql, param, transaction, commandTimeout, commandType);
         }

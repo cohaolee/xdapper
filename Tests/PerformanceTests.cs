@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using BLToolkit.Data;
-using XDapper;
+using Dapper;
 using Massive;
 using NHibernate.Criterion;
 using NHibernate.Linq;
@@ -14,7 +14,7 @@ using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.SqlServer;
 using SqlMapper.Linq2Sql;
 using SqlMapper.NHibernate;
-using XDapper.Contrib.Extensions;
+using Dapper.Contrib.Extensions;
 using SqlMapper.EntityFramework;
 using Susanoo;
 

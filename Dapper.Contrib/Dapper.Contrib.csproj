@@ -8,7 +8,7 @@
     <ProjectGuid>{C2FC4DF5-C8D1-4EA8-8E0C-85A3793EB0BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XDapper.Contrib</RootNamespace>
+    <RootNamespace>Dapper.Contrib</RootNamespace>
     <AssemblyName>Dapper.Contrib</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
