@@ -1,4 +1,4 @@
-﻿namespace Dapper.EntityFramework
+﻿namespace XDapper.EntityFramework
 {
     /// <summary>
     /// Acts on behalf of all type-handlers in this package

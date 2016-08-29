@@ -52,7 +52,10 @@ namespace SqlMapper
         {
 
 #if DEBUG
-            RunTests();
+            //RunTests();
+
+            (new Tests()).TestUnderscoreMap();
+
 #else 
             EnsureDBSetup();
             RunPerformanceTests();

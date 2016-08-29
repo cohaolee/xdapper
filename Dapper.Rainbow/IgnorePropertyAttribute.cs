@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dapper
+namespace XDapper
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
     public class IgnorePropertyAttribute : Attribute

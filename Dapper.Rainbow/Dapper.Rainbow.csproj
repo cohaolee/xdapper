@@ -8,7 +8,7 @@
     <ProjectGuid>{21BC6EA8-3D10-4CC9-A1B3-9FAD59F7D1BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dapper.Rainbow</RootNamespace>
+    <RootNamespace>XDapper.Rainbow</RootNamespace>
     <AssemblyName>Dapper.Rainbow</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

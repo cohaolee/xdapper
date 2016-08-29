@@ -3,13 +3,13 @@ using System.Data.SqlServerCe;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Dapper.Contrib.Extensions;
+using XDapper.Contrib.Extensions;
 using System.Collections.Generic;
 using System;
-using Dapper;
+using XDapper;
 
 
-namespace Dapper.Contrib.Tests
+namespace XDapper.Contrib.Tests
 {
     public interface IUser
     {

@@ -21,7 +21,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq.Expressions;
 
-namespace Dapper
+namespace XDapper
 {
     [AssemblyNeutral, AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Struct, AllowMultiple = false, Inherited = false)]
     internal sealed class AssemblyNeutralAttribute : Attribute { }
@@ -3507,6 +3507,7 @@ this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TFourth, TRetu
 
         /// <summary>
         /// Gets type-map for the given type
+        /// 获取实体类型-属性和表字段映射器
         /// </summary>
         /// <returns>Type map implementation, DefaultTypeMap instance if no override present</returns>
         public static ITypeMap GetTypeMap(Type type)
@@ -3529,14 +3530,16 @@ this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TFourth, TRetu
             return map;
         }
 
+        //实体类型-属性和字段映射器
         // use Hashtable to get free lockless reading
         private static readonly Hashtable _typeMaps = new Hashtable();
 
         /// <summary>
         /// Set custom mapping for type deserializers
+        /// 设置自定义的类型映射器
         /// </summary>
-        /// <param name="type">Entity type to override</param>
-        /// <param name="map">Mapping rules impementation, null to remove custom map</param>
+        /// <param name="type">Entity type to override，实体</param>
+        /// <param name="map">Mapping rules impementation, null to remove custom map，映射器</param>
         public static void SetTypeMap(Type type, ITypeMap map)
         {
             if (type == null)
@@ -4963,7 +4966,7 @@ string name, object value = null, DbType? dbType = null, ParameterDirection? dir
         }
     }
 
-    sealed class DataTableHandler : Dapper.SqlMapper.ITypeHandler
+    sealed class DataTableHandler : XDapper.SqlMapper.ITypeHandler
     {
         public object Parse(Type destinationType, object value)
         {
@@ -4979,7 +4982,7 @@ string name, object value = null, DbType? dbType = null, ParameterDirection? dir
     /// <summary>
     /// Used to pass a DataTable as a TableValuedParameter
     /// </summary>
-    sealed partial class TableValuedParameter : Dapper.SqlMapper.ICustomQueryParameter
+    sealed partial class TableValuedParameter : XDapper.SqlMapper.ICustomQueryParameter
     {
         private readonly DataTable table;
         private readonly string typeName;
@@ -5034,7 +5037,7 @@ string name, object value = null, DbType? dbType = null, ParameterDirection? dir
     /// <summary>
     /// This class represents a SQL string, it can be used if you need to denote your parameter is a Char vs VarChar vs nVarChar vs nChar
     /// </summary>
-    sealed partial class DbString : Dapper.SqlMapper.ICustomQueryParameter
+    sealed partial class DbString : XDapper.SqlMapper.ICustomQueryParameter
     {
         /// <summary>
         /// A value to set the default value of strings

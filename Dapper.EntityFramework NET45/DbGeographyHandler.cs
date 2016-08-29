@@ -4,12 +4,12 @@ using System.Data;
 using System.Data.Entity.Spatial;
 using System.Data.SqlClient;
 
-namespace Dapper.EntityFramework
+namespace XDapper.EntityFramework
 {
     /// <summary>
     /// Type-handler for the DbGeography spatial type
     /// </summary>
-    public class DbGeographyHandler : Dapper.SqlMapper.TypeHandler<DbGeography>
+    public class DbGeographyHandler : XDapper.SqlMapper.TypeHandler<DbGeography>
     {
         /// <summary>
         /// Create a new handler instance

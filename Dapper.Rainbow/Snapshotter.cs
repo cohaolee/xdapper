@@ -10,7 +10,7 @@ using System.Web;
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace Dapper
+namespace XDapper
 {
     public static class Snapshotter
     {
